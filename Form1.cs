@@ -23,6 +23,5 @@ namespace Connect4Interface
 
         //This is Nathan
         //Test commit from Ethan
-        //This is a commit from my branch
     }
 }
