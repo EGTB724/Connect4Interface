@@ -23,7 +23,6 @@ namespace Connect4Interface
 
         //This is Nathan
         //Test commit from Ethan
-
-        //Test on the Nathan branch
+        //this is hopefully our final change
     }
 }
