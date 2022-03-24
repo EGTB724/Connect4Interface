@@ -21,6 +21,23 @@ namespace Connect4Interface
 
         }
 
+        private void leaveTile(object sender, EventArgs e)
+        {
+            textBox1.Text = "Not covered";
+        }
+
+        private void enterTile(object sender, EventArgs e)
+        {
+            PictureBox tile = sender as PictureBox;
+
+            if (tile == null)
+            {
+                return;
+            }
+
+            textBox1.Text = tile.Name;
+        }
+
         //This is Nathan
         //Test commit from Ethan
         //this is hopefully our final change
