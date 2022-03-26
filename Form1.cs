@@ -38,6 +38,11 @@ namespace Connect4Interface
             textBox1.Text = tile.Name;
         }
 
+        private void clickPictureBox(object sender,EventArgs e) {
+            PictureBox pictureBox = sender as PictureBox;
+            pictureBox.BackgroundImage = Connect4Interface.Properties.Resources.yellowchip;
+        }
+
         //This is Nathan
         //Test commit from Ethan
         //this is hopefully our final change
