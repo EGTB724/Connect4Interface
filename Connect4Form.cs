@@ -44,6 +44,27 @@ namespace Connect4Interface
                                             { p50, p51, p52, p53, p54, p55, p56 } };
 
             turn = "red";
+
+            //Start with the game board disabled
+            disableAllTiles();
+        }
+
+        private void StartOverButton_Click(object sender, EventArgs e)
+        {
+            for (int row = 0; row < NUM_ROWS; row++)
+            {
+                for (int col = 0; col < NUM_COLS; col++)
+                {
+                    formBoard[row, col].Click += new EventHandler(clickTile);
+                    formBoard[row, col].MouseEnter += new EventHandler(enterTile);
+                    formBoard[row, col].MouseLeave += new EventHandler(leaveTile);
+                    formBoard[row, col].BackgroundImage = null;
+                    formBoard[row, col].Tag = null;
+                    board[row, col] = 0;
+                }
+            }
+
+            turn = "red";
         }
 
         private void leaveTile(object sender, EventArgs e)
@@ -82,6 +103,8 @@ namespace Connect4Interface
                 }
             }
 
+            
+
             return;
 
         }
@@ -103,6 +126,7 @@ namespace Connect4Interface
 
                     if (hasWon(tile.Name)) {
                         textBox1.Text = "red player won!!";
+                        disableAllTiles();
                     }
 
                     flipBoard();
@@ -122,6 +146,7 @@ namespace Connect4Interface
 
                     if (hasWon(tile.Name)) {
                         textBox1.Text = "yellow player won!!";
+                        disableAllTiles();
                     }
 
                     flipBoard();
@@ -233,10 +258,27 @@ namespace Connect4Interface
             }
         }
 
+
+
+        private void disableAllTiles() 
+        {
+            for (int row = 0; row < NUM_ROWS; row++)
+            {
+                for (int col = 0; col < NUM_COLS; col++)
+                {
+                    formBoard[row, col].Click -= new EventHandler(clickTile);
+                    formBoard[row, col].MouseEnter -= new EventHandler(enterTile);
+                    formBoard[row, col].MouseLeave -= new EventHandler(leaveTile);
+                }
+            }
+        }
+
         private void clickPictureBox(object sender,EventArgs e) {
             PictureBox pictureBox = sender as PictureBox;
             pictureBox.BackgroundImage = Connect4Interface.Properties.Resources.yellowchip;
         }
+
+
 
 
         //This is Nathan
