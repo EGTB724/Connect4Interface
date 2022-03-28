@@ -17,6 +17,9 @@ namespace Connect4Interface
         PictureBox[,] formBoard;
         string turn;
 
+        const int NUM_ROWS = 6;
+        const int NUM_COLS = 7;
+
         public Connect4Form()
         {
             InitializeComponent();
@@ -97,6 +100,13 @@ namespace Connect4Interface
                 if ((string)tile.Tag == "highlight") 
                 {
                     placePiece(tile.Name);
+
+                    if (hasWon(tile.Name)) {
+                        textBox1.Text = "red player won!!";
+                    }
+
+                    flipBoard();
+
                     tile.BackgroundImage = Properties.Resources.redchip;
                     tile.Tag = "red";
                     turn = "yellow";
@@ -109,6 +119,14 @@ namespace Connect4Interface
                 if ((string)tile.Tag == "highlight")
                 {
                     placePiece(tile.Name);
+
+                    if (hasWon(tile.Name)) {
+                        textBox1.Text = "yellow player won!!";
+                    }
+
+                    flipBoard();
+
+
                     tile.BackgroundImage = Properties.Resources.yellowchip;
                     tile.Tag = "yellow";
                     turn = "red";
@@ -149,6 +167,70 @@ namespace Connect4Interface
             int col = (int)(tileName[2] - '0');
 
             board[row, col] = 1;
+        }
+
+        //Check the board to see if there is any line of 4 1's
+        private bool hasWon(string tileName) {
+            int row = (int)(tileName[1] - '0');
+            int col = (int)(tileName[2] - '0');
+
+            // horizontalCheck 
+            for (int j = 0; j < NUM_COLS - 3; j++)
+            {
+                for (int i = 0; i < NUM_ROWS; i++)
+                {
+                    if (board[i, j] == 1 && board[i,j + 1] == 1 && board[i,j + 2] == 1 && board[i,j + 3] == 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+            // verticalCheck
+            for (int i = 0; i < NUM_ROWS - 3; i++)
+            {
+                for (int j = 0; j < NUM_COLS; j++)
+                {
+                    if (board[i,j] == 1 && board[i + 1,j] == 1 && board[i + 2,j] == 1 && board[i + 3,j] == 1)
+                    {
+                        return true;
+                    }
+                }
+            }
+            // ascendingDiagonalCheck 
+            for (int i = 3; i < NUM_ROWS; i++)
+            {
+                for (int j = 0; j < NUM_COLS - 3; j++)
+                {
+                    if (board[i,j] == 1 && board[i - 1,j + 1] == 1 && board[i - 2,j + 2] == 1 && board[i - 3,j + 3] == 1)
+                        return true;
+                }
+            }
+            // descendingDiagonalCheck
+            for (int i = 3; i < NUM_ROWS; i++)
+            {
+                for (int j = 3; j < NUM_COLS; j++)
+                {
+                    if (board[i,j] == 1 && board[i - 1,j - 1] == 1 && board[i - 2,j - 2] == 1 && board[i - 3,j - 3] == 1)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        //Flips the array (swaps 1 and -1)
+        private void flipBoard() {
+            for (int row = 0; row < NUM_ROWS; row++) {
+                for (int col = 0; col < NUM_COLS; col++) {
+                    if (board[row, col] == 1)
+                    {
+                        board[row, col] = -1;
+                    }
+                    else if (board[row, col] == -1) 
+                    {
+                        board[row, col] = 1;
+                    }
+                }
+            }
         }
 
         private void clickPictureBox(object sender,EventArgs e) {
