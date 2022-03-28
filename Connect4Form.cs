@@ -52,8 +52,10 @@ namespace Connect4Interface
                 return;
             }
 
-            if (tile.BackgroundImage == Properties.Resources.highlight) {
+            //Check if background image is the highlight
+            if ((string)tile.Tag == "highlight") {
                 tile.BackgroundImage = null;
+                tile.Tag = "";
             }
             
             return;
@@ -70,7 +72,11 @@ namespace Connect4Interface
 
             if (tile.BackgroundImage == null)
             {
-                tile.BackgroundImage = Properties.Resources.highlight;
+                if (isValid(tile.Name))
+                {
+                    tile.BackgroundImage = Properties.Resources.highlight;
+                    tile.Tag = "highlight";
+                }
             }
 
             return;
@@ -88,16 +94,61 @@ namespace Connect4Interface
 
             if (turn == "red")
             {
-                tile.BackgroundImage = Properties.Resources.redchip;
-                turn = "yellow";
-                return;
+                if ((string)tile.Tag == "highlight") 
+                {
+                    placePiece(tile.Name);
+                    tile.BackgroundImage = Properties.Resources.redchip;
+                    tile.Tag = "red";
+                    turn = "yellow";
+                    return;
+                }
+                
             }
             else if (turn == "yellow")
             {
-                tile.BackgroundImage = Properties.Resources.yellowchip;
-                turn = "red";
-                return;
+                if ((string)tile.Tag == "highlight")
+                {
+                    placePiece(tile.Name);
+                    tile.BackgroundImage = Properties.Resources.yellowchip;
+                    tile.Tag = "yellow";
+                    turn = "red";
+                    return;
+                }
             }
+        }
+
+        //Takes in the name of the tile and returns whether it would be valid to play there
+        private bool isValid(string tileName)
+        {
+            int row = (int)(tileName[1] - '0');
+            int col = (int)(tileName[2] - '0');
+
+            //Make sure the space isn't already occupied
+            if (board[row, col] != 0) 
+            {
+                return false;
+            }
+
+            //Moves on the bottom are valid
+            if (row == 5) 
+            {
+                return true;
+            }
+
+            //If not on bottom then check if there's a piece below
+            if (board[row + 1, col] != 0) {
+                return true;
+            }
+
+            return false;
+        }
+
+        //Takes in the name of the tile and adds the value to array 
+        private void placePiece(string tileName) {
+            int row = (int)(tileName[1] - '0');
+            int col = (int)(tileName[2] - '0');
+
+            board[row, col] = 1;
         }
 
         private void clickPictureBox(object sender,EventArgs e) {

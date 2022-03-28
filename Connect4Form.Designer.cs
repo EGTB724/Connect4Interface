@@ -817,7 +817,6 @@ namespace Connect4Interface
             // 
             // p20
             // 
-            this.p20.BackgroundImage = global::Connect4Interface.Properties.Resources.highlight;
             this.p20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p20.Location = new System.Drawing.Point(5, 191);
@@ -922,7 +921,6 @@ namespace Connect4Interface
             // 
             // p31
             // 
-            this.p31.BackgroundImage = global::Connect4Interface.Properties.Resources.yellowchip;
             this.p31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p31.Location = new System.Drawing.Point(96, 284);
@@ -936,7 +934,6 @@ namespace Connect4Interface
             // 
             // p33
             // 
-            this.p33.BackgroundImage = global::Connect4Interface.Properties.Resources.yellowchip;
             this.p33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p33.Location = new System.Drawing.Point(278, 284);
@@ -950,7 +947,6 @@ namespace Connect4Interface
             // 
             // p32
             // 
-            this.p32.BackgroundImage = global::Connect4Interface.Properties.Resources.yellowchip;
             this.p32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p32.Location = new System.Drawing.Point(187, 284);
@@ -964,7 +960,6 @@ namespace Connect4Interface
             // 
             // p30
             // 
-            this.p30.BackgroundImage = global::Connect4Interface.Properties.Resources.yellowchip;
             this.p30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p30.Location = new System.Drawing.Point(5, 284);
@@ -978,7 +973,6 @@ namespace Connect4Interface
             // 
             // p00
             // 
-            this.p00.BackgroundImage = global::Connect4Interface.Properties.Resources.yellowchip;
             this.p00.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p00.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p00.Location = new System.Drawing.Point(5, 5);
