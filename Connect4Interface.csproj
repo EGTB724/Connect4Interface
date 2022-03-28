@@ -86,5 +86,8 @@
   <ItemGroup>
     <None Include="Resources\redchip.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\highlight.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
