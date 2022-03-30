@@ -278,6 +278,19 @@ namespace Connect4Interface
             pictureBox.BackgroundImage = Connect4Interface.Properties.Resources.yellowchip;
         }
 
+        private void YellowComputerButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog1 = new OpenFileDialog()
+            {
+                Filter = "Executables|*.exe"
+            };
+
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                string filename = openFileDialog1.FileName;
+                MessageBox.Show(filename);
+            }
+        }
+
 
 
 

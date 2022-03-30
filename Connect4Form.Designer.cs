@@ -91,6 +91,7 @@ namespace Connect4Interface
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.StartOverButton = new System.Windows.Forms.Button();
+            this.YellowComputerButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p06)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p05)).BeginInit();
@@ -995,11 +996,22 @@ namespace Connect4Interface
             this.StartOverButton.UseVisualStyleBackColor = true;
             this.StartOverButton.Click += new System.EventHandler(this.StartOverButton_Click);
             // 
+            // YellowComputerButton
+            // 
+            this.YellowComputerButton.Location = new System.Drawing.Point(230, 523);
+            this.YellowComputerButton.Name = "YellowComputerButton";
+            this.YellowComputerButton.Size = new System.Drawing.Size(75, 23);
+            this.YellowComputerButton.TabIndex = 6;
+            this.YellowComputerButton.Text = "Computer";
+            this.YellowComputerButton.UseVisualStyleBackColor = true;
+            this.YellowComputerButton.Click += new System.EventHandler(this.YellowComputerButton_Click);
+            // 
             // Connect4Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 757);
+            this.Controls.Add(this.YellowComputerButton);
             this.Controls.Add(this.StartOverButton);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.textBox1);
@@ -1136,6 +1148,7 @@ namespace Connect4Interface
         private System.Windows.Forms.PictureBox p11;
         private System.Windows.Forms.PictureBox p10;
         private System.Windows.Forms.Button StartOverButton;
+        private System.Windows.Forms.Button YellowComputerButton;
     }
 }
 
