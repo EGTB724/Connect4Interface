@@ -273,10 +273,7 @@ namespace Connect4Interface
             }
         }
 
-        private void clickPictureBox(object sender,EventArgs e) {
-            PictureBox pictureBox = sender as PictureBox;
-            pictureBox.BackgroundImage = Connect4Interface.Properties.Resources.yellowchip;
-        }
+        
 
         private void YellowComputerButton_Click(object sender, EventArgs e)
         {
