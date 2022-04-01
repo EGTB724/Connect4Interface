@@ -76,41 +76,41 @@ namespace Connect4Interface
             this.StartOverButton = new System.Windows.Forms.Button();
             this.YellowComputerButton = new System.Windows.Forms.Button();
             this.YellowGroupBox = new System.Windows.Forms.GroupBox();
+            this.YellowHumanButton = new System.Windows.Forms.Button();
+            this.YelloComputerButton = new System.Windows.Forms.Button();
+            this.YelloScoreLabel = new System.Windows.Forms.Label();
+            this.YellowPlayerLabel = new System.Windows.Forms.Label();
+            this.YellowConsoleWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.WhoseTurnLabel = new System.Windows.Forms.Label();
+            this.BackLogButton = new System.Windows.Forms.Button();
+            this.ForwardLogButton = new System.Windows.Forms.Button();
+            this.ResetGameButton = new System.Windows.Forms.Button();
+            this.StartGameButton = new System.Windows.Forms.Button();
             this.RedHumanButton = new System.Windows.Forms.Button();
             this.RedComputerButton = new System.Windows.Forms.Button();
             this.RedPlayerLabel = new System.Windows.Forms.Label();
             this.RedConsoleWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.RedScoreLabel = new System.Windows.Forms.Label();
             this.RedGroupBox = new System.Windows.Forms.GroupBox();
-            this.YellowHumanButton = new System.Windows.Forms.Button();
-            this.YelloScoreLabel = new System.Windows.Forms.Label();
-            this.YelloComputerButton = new System.Windows.Forms.Button();
-            this.YellowConsoleWindowCheckBox = new System.Windows.Forms.CheckBox();
-            this.YellowPlayerLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.computerTimeLimitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.endGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forwardInLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.backwardInLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.computerTimeLimitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secondsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secondsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.secondsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.minuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.noLimitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StartGameButton = new System.Windows.Forms.Button();
-            this.ResetGameButton = new System.Windows.Forms.Button();
-            this.ForwardLogButton = new System.Windows.Forms.Button();
-            this.BackLogButton = new System.Windows.Forms.Button();
-            this.WhoseTurnLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p06)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p05)).BeginInit();
@@ -156,9 +156,9 @@ namespace Connect4Interface
             ((System.ComponentModel.ISupportInitialize)(this.p00)).BeginInit();
             this.YellowGroupBox.SuspendLayout();
             this.ControlGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.RedGroupBox.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -226,7 +226,7 @@ namespace Connect4Interface
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 720);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(720, 600);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // p06
@@ -236,7 +236,7 @@ namespace Connect4Interface
             this.p06.Location = new System.Drawing.Point(618, 7);
             this.p06.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p06.Name = "p06";
-            this.p06.Size = new System.Drawing.Size(96, 107);
+            this.p06.Size = new System.Drawing.Size(96, 87);
             this.p06.TabIndex = 47;
             this.p06.TabStop = false;
             this.p06.Click += new System.EventHandler(this.clickTile);
@@ -250,7 +250,7 @@ namespace Connect4Interface
             this.p05.Location = new System.Drawing.Point(516, 7);
             this.p05.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p05.Name = "p05";
-            this.p05.Size = new System.Drawing.Size(92, 107);
+            this.p05.Size = new System.Drawing.Size(92, 87);
             this.p05.TabIndex = 46;
             this.p05.TabStop = false;
             this.p05.Click += new System.EventHandler(this.clickTile);
@@ -264,7 +264,7 @@ namespace Connect4Interface
             this.p04.Location = new System.Drawing.Point(414, 7);
             this.p04.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p04.Name = "p04";
-            this.p04.Size = new System.Drawing.Size(92, 107);
+            this.p04.Size = new System.Drawing.Size(92, 87);
             this.p04.TabIndex = 45;
             this.p04.TabStop = false;
             this.p04.Click += new System.EventHandler(this.clickTile);
@@ -278,7 +278,7 @@ namespace Connect4Interface
             this.p03.Location = new System.Drawing.Point(312, 7);
             this.p03.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p03.Name = "p03";
-            this.p03.Size = new System.Drawing.Size(92, 107);
+            this.p03.Size = new System.Drawing.Size(92, 87);
             this.p03.TabIndex = 44;
             this.p03.TabStop = false;
             this.p03.Click += new System.EventHandler(this.clickTile);
@@ -292,7 +292,7 @@ namespace Connect4Interface
             this.p02.Location = new System.Drawing.Point(210, 7);
             this.p02.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p02.Name = "p02";
-            this.p02.Size = new System.Drawing.Size(92, 107);
+            this.p02.Size = new System.Drawing.Size(92, 87);
             this.p02.TabIndex = 43;
             this.p02.TabStop = false;
             this.p02.Click += new System.EventHandler(this.clickTile);
@@ -306,7 +306,7 @@ namespace Connect4Interface
             this.p01.Location = new System.Drawing.Point(108, 7);
             this.p01.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p01.Name = "p01";
-            this.p01.Size = new System.Drawing.Size(92, 107);
+            this.p01.Size = new System.Drawing.Size(92, 87);
             this.p01.TabIndex = 42;
             this.p01.TabStop = false;
             this.p01.Click += new System.EventHandler(this.clickTile);
@@ -317,10 +317,10 @@ namespace Connect4Interface
             // 
             this.p56.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p56.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p56.Location = new System.Drawing.Point(618, 602);
+            this.p56.Location = new System.Drawing.Point(618, 502);
             this.p56.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p56.Name = "p56";
-            this.p56.Size = new System.Drawing.Size(96, 111);
+            this.p56.Size = new System.Drawing.Size(96, 91);
             this.p56.TabIndex = 41;
             this.p56.TabStop = false;
             this.p56.Click += new System.EventHandler(this.clickTile);
@@ -331,10 +331,10 @@ namespace Connect4Interface
             // 
             this.p55.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p55.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p55.Location = new System.Drawing.Point(516, 602);
+            this.p55.Location = new System.Drawing.Point(516, 502);
             this.p55.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p55.Name = "p55";
-            this.p55.Size = new System.Drawing.Size(92, 111);
+            this.p55.Size = new System.Drawing.Size(92, 91);
             this.p55.TabIndex = 40;
             this.p55.TabStop = false;
             this.p55.Click += new System.EventHandler(this.clickTile);
@@ -345,10 +345,10 @@ namespace Connect4Interface
             // 
             this.p54.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p54.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p54.Location = new System.Drawing.Point(414, 602);
+            this.p54.Location = new System.Drawing.Point(414, 502);
             this.p54.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p54.Name = "p54";
-            this.p54.Size = new System.Drawing.Size(92, 111);
+            this.p54.Size = new System.Drawing.Size(92, 91);
             this.p54.TabIndex = 39;
             this.p54.TabStop = false;
             this.p54.Click += new System.EventHandler(this.clickTile);
@@ -359,10 +359,10 @@ namespace Connect4Interface
             // 
             this.p53.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p53.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p53.Location = new System.Drawing.Point(312, 602);
+            this.p53.Location = new System.Drawing.Point(312, 502);
             this.p53.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p53.Name = "p53";
-            this.p53.Size = new System.Drawing.Size(92, 111);
+            this.p53.Size = new System.Drawing.Size(92, 91);
             this.p53.TabIndex = 38;
             this.p53.TabStop = false;
             this.p53.Click += new System.EventHandler(this.clickTile);
@@ -373,10 +373,10 @@ namespace Connect4Interface
             // 
             this.p52.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p52.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p52.Location = new System.Drawing.Point(210, 602);
+            this.p52.Location = new System.Drawing.Point(210, 502);
             this.p52.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p52.Name = "p52";
-            this.p52.Size = new System.Drawing.Size(92, 111);
+            this.p52.Size = new System.Drawing.Size(92, 91);
             this.p52.TabIndex = 37;
             this.p52.TabStop = false;
             this.p52.Click += new System.EventHandler(this.clickTile);
@@ -387,10 +387,10 @@ namespace Connect4Interface
             // 
             this.p51.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p51.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p51.Location = new System.Drawing.Point(108, 602);
+            this.p51.Location = new System.Drawing.Point(108, 502);
             this.p51.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p51.Name = "p51";
-            this.p51.Size = new System.Drawing.Size(92, 111);
+            this.p51.Size = new System.Drawing.Size(92, 91);
             this.p51.TabIndex = 36;
             this.p51.TabStop = false;
             this.p51.Click += new System.EventHandler(this.clickTile);
@@ -401,10 +401,10 @@ namespace Connect4Interface
             // 
             this.p50.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p50.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p50.Location = new System.Drawing.Point(6, 602);
+            this.p50.Location = new System.Drawing.Point(6, 502);
             this.p50.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p50.Name = "p50";
-            this.p50.Size = new System.Drawing.Size(92, 111);
+            this.p50.Size = new System.Drawing.Size(92, 91);
             this.p50.TabIndex = 35;
             this.p50.TabStop = false;
             this.p50.Click += new System.EventHandler(this.clickTile);
@@ -415,10 +415,10 @@ namespace Connect4Interface
             // 
             this.p46.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p46.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p46.Location = new System.Drawing.Point(618, 483);
+            this.p46.Location = new System.Drawing.Point(618, 403);
             this.p46.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p46.Name = "p46";
-            this.p46.Size = new System.Drawing.Size(96, 107);
+            this.p46.Size = new System.Drawing.Size(96, 87);
             this.p46.TabIndex = 34;
             this.p46.TabStop = false;
             this.p46.Click += new System.EventHandler(this.clickTile);
@@ -429,10 +429,10 @@ namespace Connect4Interface
             // 
             this.p45.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p45.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p45.Location = new System.Drawing.Point(516, 483);
+            this.p45.Location = new System.Drawing.Point(516, 403);
             this.p45.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p45.Name = "p45";
-            this.p45.Size = new System.Drawing.Size(92, 107);
+            this.p45.Size = new System.Drawing.Size(92, 87);
             this.p45.TabIndex = 33;
             this.p45.TabStop = false;
             this.p45.Click += new System.EventHandler(this.clickTile);
@@ -443,10 +443,10 @@ namespace Connect4Interface
             // 
             this.p44.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p44.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p44.Location = new System.Drawing.Point(414, 483);
+            this.p44.Location = new System.Drawing.Point(414, 403);
             this.p44.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p44.Name = "p44";
-            this.p44.Size = new System.Drawing.Size(92, 107);
+            this.p44.Size = new System.Drawing.Size(92, 87);
             this.p44.TabIndex = 32;
             this.p44.TabStop = false;
             this.p44.Click += new System.EventHandler(this.clickTile);
@@ -457,10 +457,10 @@ namespace Connect4Interface
             // 
             this.p43.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p43.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p43.Location = new System.Drawing.Point(312, 483);
+            this.p43.Location = new System.Drawing.Point(312, 403);
             this.p43.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p43.Name = "p43";
-            this.p43.Size = new System.Drawing.Size(92, 107);
+            this.p43.Size = new System.Drawing.Size(92, 87);
             this.p43.TabIndex = 31;
             this.p43.TabStop = false;
             this.p43.Click += new System.EventHandler(this.clickTile);
@@ -471,10 +471,10 @@ namespace Connect4Interface
             // 
             this.p42.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p42.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p42.Location = new System.Drawing.Point(210, 483);
+            this.p42.Location = new System.Drawing.Point(210, 403);
             this.p42.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p42.Name = "p42";
-            this.p42.Size = new System.Drawing.Size(92, 107);
+            this.p42.Size = new System.Drawing.Size(92, 87);
             this.p42.TabIndex = 30;
             this.p42.TabStop = false;
             this.p42.Click += new System.EventHandler(this.clickTile);
@@ -485,10 +485,10 @@ namespace Connect4Interface
             // 
             this.p41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p41.Location = new System.Drawing.Point(108, 483);
+            this.p41.Location = new System.Drawing.Point(108, 403);
             this.p41.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p41.Name = "p41";
-            this.p41.Size = new System.Drawing.Size(92, 107);
+            this.p41.Size = new System.Drawing.Size(92, 87);
             this.p41.TabIndex = 29;
             this.p41.TabStop = false;
             this.p41.Click += new System.EventHandler(this.clickTile);
@@ -499,10 +499,10 @@ namespace Connect4Interface
             // 
             this.p40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p40.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p40.Location = new System.Drawing.Point(6, 483);
+            this.p40.Location = new System.Drawing.Point(6, 403);
             this.p40.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p40.Name = "p40";
-            this.p40.Size = new System.Drawing.Size(92, 107);
+            this.p40.Size = new System.Drawing.Size(92, 87);
             this.p40.TabIndex = 28;
             this.p40.TabStop = false;
             this.p40.Click += new System.EventHandler(this.clickTile);
@@ -513,10 +513,10 @@ namespace Connect4Interface
             // 
             this.p36.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p36.Location = new System.Drawing.Point(618, 364);
+            this.p36.Location = new System.Drawing.Point(618, 304);
             this.p36.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p36.Name = "p36";
-            this.p36.Size = new System.Drawing.Size(96, 107);
+            this.p36.Size = new System.Drawing.Size(96, 87);
             this.p36.TabIndex = 27;
             this.p36.TabStop = false;
             this.p36.Click += new System.EventHandler(this.clickTile);
@@ -527,10 +527,10 @@ namespace Connect4Interface
             // 
             this.p35.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p35.Location = new System.Drawing.Point(516, 364);
+            this.p35.Location = new System.Drawing.Point(516, 304);
             this.p35.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p35.Name = "p35";
-            this.p35.Size = new System.Drawing.Size(92, 107);
+            this.p35.Size = new System.Drawing.Size(92, 87);
             this.p35.TabIndex = 26;
             this.p35.TabStop = false;
             this.p35.Click += new System.EventHandler(this.clickTile);
@@ -541,10 +541,10 @@ namespace Connect4Interface
             // 
             this.p34.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p34.Location = new System.Drawing.Point(414, 364);
+            this.p34.Location = new System.Drawing.Point(414, 304);
             this.p34.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p34.Name = "p34";
-            this.p34.Size = new System.Drawing.Size(92, 107);
+            this.p34.Size = new System.Drawing.Size(92, 87);
             this.p34.TabIndex = 25;
             this.p34.TabStop = false;
             this.p34.Click += new System.EventHandler(this.clickTile);
@@ -555,10 +555,10 @@ namespace Connect4Interface
             // 
             this.p26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p26.Location = new System.Drawing.Point(618, 245);
+            this.p26.Location = new System.Drawing.Point(618, 205);
             this.p26.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p26.Name = "p26";
-            this.p26.Size = new System.Drawing.Size(96, 107);
+            this.p26.Size = new System.Drawing.Size(96, 87);
             this.p26.TabIndex = 24;
             this.p26.TabStop = false;
             this.p26.Click += new System.EventHandler(this.clickTile);
@@ -569,10 +569,10 @@ namespace Connect4Interface
             // 
             this.p25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p25.Location = new System.Drawing.Point(516, 245);
+            this.p25.Location = new System.Drawing.Point(516, 205);
             this.p25.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p25.Name = "p25";
-            this.p25.Size = new System.Drawing.Size(92, 107);
+            this.p25.Size = new System.Drawing.Size(92, 87);
             this.p25.TabIndex = 23;
             this.p25.TabStop = false;
             this.p25.Click += new System.EventHandler(this.clickTile);
@@ -583,10 +583,10 @@ namespace Connect4Interface
             // 
             this.p24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p24.Location = new System.Drawing.Point(414, 245);
+            this.p24.Location = new System.Drawing.Point(414, 205);
             this.p24.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p24.Name = "p24";
-            this.p24.Size = new System.Drawing.Size(92, 107);
+            this.p24.Size = new System.Drawing.Size(92, 87);
             this.p24.TabIndex = 22;
             this.p24.TabStop = false;
             this.p24.Click += new System.EventHandler(this.clickTile);
@@ -597,10 +597,10 @@ namespace Connect4Interface
             // 
             this.p23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p23.Location = new System.Drawing.Point(312, 245);
+            this.p23.Location = new System.Drawing.Point(312, 205);
             this.p23.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p23.Name = "p23";
-            this.p23.Size = new System.Drawing.Size(92, 107);
+            this.p23.Size = new System.Drawing.Size(92, 87);
             this.p23.TabIndex = 21;
             this.p23.TabStop = false;
             this.p23.Click += new System.EventHandler(this.clickTile);
@@ -611,10 +611,10 @@ namespace Connect4Interface
             // 
             this.p22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p22.Location = new System.Drawing.Point(210, 245);
+            this.p22.Location = new System.Drawing.Point(210, 205);
             this.p22.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p22.Name = "p22";
-            this.p22.Size = new System.Drawing.Size(92, 107);
+            this.p22.Size = new System.Drawing.Size(92, 87);
             this.p22.TabIndex = 20;
             this.p22.TabStop = false;
             this.p22.Click += new System.EventHandler(this.clickTile);
@@ -625,10 +625,10 @@ namespace Connect4Interface
             // 
             this.p21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p21.Location = new System.Drawing.Point(108, 245);
+            this.p21.Location = new System.Drawing.Point(108, 205);
             this.p21.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p21.Name = "p21";
-            this.p21.Size = new System.Drawing.Size(92, 107);
+            this.p21.Size = new System.Drawing.Size(92, 87);
             this.p21.TabIndex = 19;
             this.p21.TabStop = false;
             this.p21.Click += new System.EventHandler(this.clickTile);
@@ -639,10 +639,10 @@ namespace Connect4Interface
             // 
             this.p20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p20.Location = new System.Drawing.Point(6, 245);
+            this.p20.Location = new System.Drawing.Point(6, 205);
             this.p20.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p20.Name = "p20";
-            this.p20.Size = new System.Drawing.Size(92, 107);
+            this.p20.Size = new System.Drawing.Size(92, 87);
             this.p20.TabIndex = 18;
             this.p20.TabStop = false;
             this.p20.Click += new System.EventHandler(this.clickTile);
@@ -653,10 +653,10 @@ namespace Connect4Interface
             // 
             this.p16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p16.Location = new System.Drawing.Point(618, 126);
+            this.p16.Location = new System.Drawing.Point(618, 106);
             this.p16.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p16.Name = "p16";
-            this.p16.Size = new System.Drawing.Size(96, 107);
+            this.p16.Size = new System.Drawing.Size(96, 87);
             this.p16.TabIndex = 17;
             this.p16.TabStop = false;
             this.p16.Click += new System.EventHandler(this.clickTile);
@@ -667,10 +667,10 @@ namespace Connect4Interface
             // 
             this.p15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p15.Location = new System.Drawing.Point(516, 126);
+            this.p15.Location = new System.Drawing.Point(516, 106);
             this.p15.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p15.Name = "p15";
-            this.p15.Size = new System.Drawing.Size(92, 107);
+            this.p15.Size = new System.Drawing.Size(92, 87);
             this.p15.TabIndex = 16;
             this.p15.TabStop = false;
             this.p15.Click += new System.EventHandler(this.clickTile);
@@ -681,10 +681,10 @@ namespace Connect4Interface
             // 
             this.p14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p14.Location = new System.Drawing.Point(414, 126);
+            this.p14.Location = new System.Drawing.Point(414, 106);
             this.p14.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p14.Name = "p14";
-            this.p14.Size = new System.Drawing.Size(92, 107);
+            this.p14.Size = new System.Drawing.Size(92, 87);
             this.p14.TabIndex = 15;
             this.p14.TabStop = false;
             this.p14.Click += new System.EventHandler(this.clickTile);
@@ -695,10 +695,10 @@ namespace Connect4Interface
             // 
             this.p13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p13.Location = new System.Drawing.Point(312, 126);
+            this.p13.Location = new System.Drawing.Point(312, 106);
             this.p13.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p13.Name = "p13";
-            this.p13.Size = new System.Drawing.Size(92, 107);
+            this.p13.Size = new System.Drawing.Size(92, 87);
             this.p13.TabIndex = 14;
             this.p13.TabStop = false;
             this.p13.Click += new System.EventHandler(this.clickTile);
@@ -709,10 +709,10 @@ namespace Connect4Interface
             // 
             this.p12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p12.Location = new System.Drawing.Point(210, 126);
+            this.p12.Location = new System.Drawing.Point(210, 106);
             this.p12.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p12.Name = "p12";
-            this.p12.Size = new System.Drawing.Size(92, 107);
+            this.p12.Size = new System.Drawing.Size(92, 87);
             this.p12.TabIndex = 13;
             this.p12.TabStop = false;
             this.p12.Click += new System.EventHandler(this.clickTile);
@@ -723,10 +723,10 @@ namespace Connect4Interface
             // 
             this.p11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p11.Location = new System.Drawing.Point(108, 126);
+            this.p11.Location = new System.Drawing.Point(108, 106);
             this.p11.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p11.Name = "p11";
-            this.p11.Size = new System.Drawing.Size(92, 107);
+            this.p11.Size = new System.Drawing.Size(92, 87);
             this.p11.TabIndex = 12;
             this.p11.TabStop = false;
             this.p11.Click += new System.EventHandler(this.clickTile);
@@ -737,10 +737,10 @@ namespace Connect4Interface
             // 
             this.p10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p10.Location = new System.Drawing.Point(6, 126);
+            this.p10.Location = new System.Drawing.Point(6, 106);
             this.p10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p10.Name = "p10";
-            this.p10.Size = new System.Drawing.Size(92, 107);
+            this.p10.Size = new System.Drawing.Size(92, 87);
             this.p10.TabIndex = 11;
             this.p10.TabStop = false;
             this.p10.Click += new System.EventHandler(this.clickTile);
@@ -751,10 +751,10 @@ namespace Connect4Interface
             // 
             this.p31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p31.Location = new System.Drawing.Point(108, 364);
+            this.p31.Location = new System.Drawing.Point(108, 304);
             this.p31.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p31.Name = "p31";
-            this.p31.Size = new System.Drawing.Size(92, 107);
+            this.p31.Size = new System.Drawing.Size(92, 87);
             this.p31.TabIndex = 4;
             this.p31.TabStop = false;
             this.p31.Click += new System.EventHandler(this.clickTile);
@@ -765,10 +765,10 @@ namespace Connect4Interface
             // 
             this.p33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p33.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p33.Location = new System.Drawing.Point(312, 364);
+            this.p33.Location = new System.Drawing.Point(312, 304);
             this.p33.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p33.Name = "p33";
-            this.p33.Size = new System.Drawing.Size(92, 107);
+            this.p33.Size = new System.Drawing.Size(92, 87);
             this.p33.TabIndex = 3;
             this.p33.TabStop = false;
             this.p33.Click += new System.EventHandler(this.clickTile);
@@ -779,10 +779,10 @@ namespace Connect4Interface
             // 
             this.p32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p32.Location = new System.Drawing.Point(210, 364);
+            this.p32.Location = new System.Drawing.Point(210, 304);
             this.p32.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p32.Name = "p32";
-            this.p32.Size = new System.Drawing.Size(92, 107);
+            this.p32.Size = new System.Drawing.Size(92, 87);
             this.p32.TabIndex = 2;
             this.p32.TabStop = false;
             this.p32.Click += new System.EventHandler(this.clickTile);
@@ -793,10 +793,10 @@ namespace Connect4Interface
             // 
             this.p30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.p30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.p30.Location = new System.Drawing.Point(6, 364);
+            this.p30.Location = new System.Drawing.Point(6, 304);
             this.p30.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p30.Name = "p30";
-            this.p30.Size = new System.Drawing.Size(92, 107);
+            this.p30.Size = new System.Drawing.Size(92, 87);
             this.p30.TabIndex = 1;
             this.p30.TabStop = false;
             this.p30.Click += new System.EventHandler(this.clickTile);
@@ -810,7 +810,7 @@ namespace Connect4Interface
             this.p00.Location = new System.Drawing.Point(6, 7);
             this.p00.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.p00.Name = "p00";
-            this.p00.Size = new System.Drawing.Size(92, 107);
+            this.p00.Size = new System.Drawing.Size(92, 87);
             this.p00.TabIndex = 0;
             this.p00.TabStop = false;
             this.p00.Click += new System.EventHandler(this.clickTile);
@@ -862,6 +862,52 @@ namespace Connect4Interface
             this.YellowGroupBox.TabStop = false;
             this.YellowGroupBox.Text = "Yellow";
             // 
+            // YellowHumanButton
+            // 
+            this.YellowHumanButton.Location = new System.Drawing.Point(17, 34);
+            this.YellowHumanButton.Name = "YellowHumanButton";
+            this.YellowHumanButton.Size = new System.Drawing.Size(181, 35);
+            this.YellowHumanButton.TabIndex = 15;
+            this.YellowHumanButton.Text = "Human";
+            this.YellowHumanButton.UseVisualStyleBackColor = true;
+            // 
+            // YelloComputerButton
+            // 
+            this.YelloComputerButton.Location = new System.Drawing.Point(218, 34);
+            this.YelloComputerButton.Name = "YelloComputerButton";
+            this.YelloComputerButton.Size = new System.Drawing.Size(181, 35);
+            this.YelloComputerButton.TabIndex = 16;
+            this.YelloComputerButton.Text = "Computer...";
+            this.YelloComputerButton.UseVisualStyleBackColor = true;
+            // 
+            // YelloScoreLabel
+            // 
+            this.YelloScoreLabel.AutoSize = true;
+            this.YelloScoreLabel.Location = new System.Drawing.Point(13, 154);
+            this.YelloScoreLabel.Name = "YelloScoreLabel";
+            this.YelloScoreLabel.Size = new System.Drawing.Size(68, 20);
+            this.YelloScoreLabel.TabIndex = 19;
+            this.YelloScoreLabel.Text = "Score: 0";
+            // 
+            // YellowPlayerLabel
+            // 
+            this.YellowPlayerLabel.AutoSize = true;
+            this.YellowPlayerLabel.Location = new System.Drawing.Point(13, 84);
+            this.YellowPlayerLabel.Name = "YellowPlayerLabel";
+            this.YellowPlayerLabel.Size = new System.Drawing.Size(136, 20);
+            this.YellowPlayerLabel.TabIndex = 17;
+            this.YellowPlayerLabel.Text = "Player Description";
+            // 
+            // YellowConsoleWindowCheckBox
+            // 
+            this.YellowConsoleWindowCheckBox.AutoSize = true;
+            this.YellowConsoleWindowCheckBox.Location = new System.Drawing.Point(17, 116);
+            this.YellowConsoleWindowCheckBox.Name = "YellowConsoleWindowCheckBox";
+            this.YellowConsoleWindowCheckBox.Size = new System.Drawing.Size(258, 24);
+            this.YellowConsoleWindowCheckBox.TabIndex = 18;
+            this.YellowConsoleWindowCheckBox.Text = "Show Yellow\'s Console Window";
+            this.YellowConsoleWindowCheckBox.UseVisualStyleBackColor = true;
+            // 
             // ControlGroupBox
             // 
             this.ControlGroupBox.Controls.Add(this.pictureBox1);
@@ -876,6 +922,61 @@ namespace Connect4Interface
             this.ControlGroupBox.TabIndex = 9;
             this.ControlGroupBox.TabStop = false;
             this.ControlGroupBox.Text = "Control";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(252, 107);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(108, 108);
+            this.pictureBox1.TabIndex = 20;
+            this.pictureBox1.TabStop = false;
+            // 
+            // WhoseTurnLabel
+            // 
+            this.WhoseTurnLabel.AutoSize = true;
+            this.WhoseTurnLabel.Location = new System.Drawing.Point(248, 80);
+            this.WhoseTurnLabel.Name = "WhoseTurnLabel";
+            this.WhoseTurnLabel.Size = new System.Drawing.Size(99, 20);
+            this.WhoseTurnLabel.TabIndex = 19;
+            this.WhoseTurnLabel.Text = "Whose Turn:";
+            // 
+            // BackLogButton
+            // 
+            this.BackLogButton.Location = new System.Drawing.Point(17, 150);
+            this.BackLogButton.Name = "BackLogButton";
+            this.BackLogButton.Size = new System.Drawing.Size(181, 35);
+            this.BackLogButton.TabIndex = 18;
+            this.BackLogButton.Text = "Step Back In Log";
+            this.BackLogButton.UseVisualStyleBackColor = true;
+            // 
+            // ForwardLogButton
+            // 
+            this.ForwardLogButton.Location = new System.Drawing.Point(17, 100);
+            this.ForwardLogButton.Name = "ForwardLogButton";
+            this.ForwardLogButton.Size = new System.Drawing.Size(181, 35);
+            this.ForwardLogButton.TabIndex = 17;
+            this.ForwardLogButton.Text = "Step Forward In Log";
+            this.ForwardLogButton.UseVisualStyleBackColor = true;
+            // 
+            // ResetGameButton
+            // 
+            this.ResetGameButton.Location = new System.Drawing.Point(218, 36);
+            this.ResetGameButton.Name = "ResetGameButton";
+            this.ResetGameButton.Size = new System.Drawing.Size(181, 35);
+            this.ResetGameButton.TabIndex = 16;
+            this.ResetGameButton.Text = "Reset Game";
+            this.ResetGameButton.UseVisualStyleBackColor = true;
+            // 
+            // StartGameButton
+            // 
+            this.StartGameButton.Location = new System.Drawing.Point(17, 36);
+            this.StartGameButton.Name = "StartGameButton";
+            this.StartGameButton.Size = new System.Drawing.Size(181, 35);
+            this.StartGameButton.TabIndex = 15;
+            this.StartGameButton.Text = "Start Game";
+            this.StartGameButton.UseVisualStyleBackColor = true;
             // 
             // RedHumanButton
             // 
@@ -937,52 +1038,6 @@ namespace Connect4Interface
             this.RedGroupBox.TabStop = false;
             this.RedGroupBox.Text = "Red";
             // 
-            // YellowHumanButton
-            // 
-            this.YellowHumanButton.Location = new System.Drawing.Point(17, 34);
-            this.YellowHumanButton.Name = "YellowHumanButton";
-            this.YellowHumanButton.Size = new System.Drawing.Size(181, 35);
-            this.YellowHumanButton.TabIndex = 15;
-            this.YellowHumanButton.Text = "Human";
-            this.YellowHumanButton.UseVisualStyleBackColor = true;
-            // 
-            // YelloScoreLabel
-            // 
-            this.YelloScoreLabel.AutoSize = true;
-            this.YelloScoreLabel.Location = new System.Drawing.Point(13, 154);
-            this.YelloScoreLabel.Name = "YelloScoreLabel";
-            this.YelloScoreLabel.Size = new System.Drawing.Size(68, 20);
-            this.YelloScoreLabel.TabIndex = 19;
-            this.YelloScoreLabel.Text = "Score: 0";
-            // 
-            // YelloComputerButton
-            // 
-            this.YelloComputerButton.Location = new System.Drawing.Point(218, 34);
-            this.YelloComputerButton.Name = "YelloComputerButton";
-            this.YelloComputerButton.Size = new System.Drawing.Size(181, 35);
-            this.YelloComputerButton.TabIndex = 16;
-            this.YelloComputerButton.Text = "Computer...";
-            this.YelloComputerButton.UseVisualStyleBackColor = true;
-            // 
-            // YellowConsoleWindowCheckBox
-            // 
-            this.YellowConsoleWindowCheckBox.AutoSize = true;
-            this.YellowConsoleWindowCheckBox.Location = new System.Drawing.Point(17, 116);
-            this.YellowConsoleWindowCheckBox.Name = "YellowConsoleWindowCheckBox";
-            this.YellowConsoleWindowCheckBox.Size = new System.Drawing.Size(258, 24);
-            this.YellowConsoleWindowCheckBox.TabIndex = 18;
-            this.YellowConsoleWindowCheckBox.Text = "Show Yellow\'s Console Window";
-            this.YellowConsoleWindowCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // YellowPlayerLabel
-            // 
-            this.YellowPlayerLabel.AutoSize = true;
-            this.YellowPlayerLabel.Location = new System.Drawing.Point(13, 84);
-            this.YellowPlayerLabel.Name = "YellowPlayerLabel";
-            this.YellowPlayerLabel.Size = new System.Drawing.Size(136, 20);
-            this.YellowPlayerLabel.TabIndex = 17;
-            this.YellowPlayerLabel.Text = "Player Description";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
@@ -993,7 +1048,7 @@ namespace Connect4Interface
             this.computerTimeLimitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1538, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1538, 36);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1004,8 +1059,26 @@ namespace Connect4Interface
             this.saveLogFileToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 39);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 32);
             this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openLogFileToolStripMenuItem
+            // 
+            this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
+            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.openLogFileToolStripMenuItem.Text = "Open Log File...";
+            // 
+            // saveLogFileToolStripMenuItem
+            // 
+            this.saveLogFileToolStripMenuItem.Name = "saveLogFileToolStripMenuItem";
+            this.saveLogFileToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.saveLogFileToolStripMenuItem.Text = "Save Log File...";
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
             // gameToolStripMenuItem
             // 
@@ -1016,8 +1089,38 @@ namespace Connect4Interface
             this.backwardInLogToolStripMenuItem,
             this.aboutToolStripMenuItem});
             this.gameToolStripMenuItem.Name = "gameToolStripMenuItem";
-            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 29);
+            this.gameToolStripMenuItem.Size = new System.Drawing.Size(74, 32);
             this.gameToolStripMenuItem.Text = "Game";
+            // 
+            // startGameToolStripMenuItem
+            // 
+            this.startGameToolStripMenuItem.Name = "startGameToolStripMenuItem";
+            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.startGameToolStripMenuItem.Text = "Start Game";
+            // 
+            // endGameToolStripMenuItem
+            // 
+            this.endGameToolStripMenuItem.Name = "endGameToolStripMenuItem";
+            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.endGameToolStripMenuItem.Text = "End Game";
+            // 
+            // forwardInLogToolStripMenuItem
+            // 
+            this.forwardInLogToolStripMenuItem.Name = "forwardInLogToolStripMenuItem";
+            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.forwardInLogToolStripMenuItem.Text = "Forward In Log";
+            // 
+            // backwardInLogToolStripMenuItem
+            // 
+            this.backwardInLogToolStripMenuItem.Name = "backwardInLogToolStripMenuItem";
+            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.backwardInLogToolStripMenuItem.Text = "Backward In Log";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.aboutToolStripMenuItem.Text = "About";
             // 
             // computerTimeLimitToolStripMenuItem
             // 
@@ -1028,141 +1131,38 @@ namespace Connect4Interface
             this.minuteToolStripMenuItem,
             this.noLimitToolStripMenuItem});
             this.computerTimeLimitToolStripMenuItem.Name = "computerTimeLimitToolStripMenuItem";
-            this.computerTimeLimitToolStripMenuItem.Size = new System.Drawing.Size(194, 39);
+            this.computerTimeLimitToolStripMenuItem.Size = new System.Drawing.Size(194, 32);
             this.computerTimeLimitToolStripMenuItem.Text = "Computer Time Limit";
-            // 
-            // openLogFileToolStripMenuItem
-            // 
-            this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
-            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.openLogFileToolStripMenuItem.Text = "Open Log File...";
-            // 
-            // saveLogFileToolStripMenuItem
-            // 
-            this.saveLogFileToolStripMenuItem.Name = "saveLogFileToolStripMenuItem";
-            this.saveLogFileToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.saveLogFileToolStripMenuItem.Text = "Save Log File...";
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // startGameToolStripMenuItem
-            // 
-            this.startGameToolStripMenuItem.Name = "startGameToolStripMenuItem";
-            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.startGameToolStripMenuItem.Text = "Start Game";
-            // 
-            // endGameToolStripMenuItem
-            // 
-            this.endGameToolStripMenuItem.Name = "endGameToolStripMenuItem";
-            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.endGameToolStripMenuItem.Text = "End Game";
-            // 
-            // forwardInLogToolStripMenuItem
-            // 
-            this.forwardInLogToolStripMenuItem.Name = "forwardInLogToolStripMenuItem";
-            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.forwardInLogToolStripMenuItem.Text = "Forward In Log";
-            // 
-            // backwardInLogToolStripMenuItem
-            // 
-            this.backwardInLogToolStripMenuItem.Name = "backwardInLogToolStripMenuItem";
-            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.backwardInLogToolStripMenuItem.Text = "Backward In Log";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
-            this.aboutToolStripMenuItem.Text = "About";
             // 
             // secondsToolStripMenuItem
             // 
             this.secondsToolStripMenuItem.Name = "secondsToolStripMenuItem";
-            this.secondsToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.secondsToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.secondsToolStripMenuItem.Text = "5 Seconds";
             // 
             // secondsToolStripMenuItem1
             // 
             this.secondsToolStripMenuItem1.Name = "secondsToolStripMenuItem1";
-            this.secondsToolStripMenuItem1.Size = new System.Drawing.Size(270, 34);
+            this.secondsToolStripMenuItem1.Size = new System.Drawing.Size(206, 34);
             this.secondsToolStripMenuItem1.Text = "10 Seconds";
             // 
             // secondsToolStripMenuItem2
             // 
             this.secondsToolStripMenuItem2.Name = "secondsToolStripMenuItem2";
-            this.secondsToolStripMenuItem2.Size = new System.Drawing.Size(270, 34);
+            this.secondsToolStripMenuItem2.Size = new System.Drawing.Size(206, 34);
             this.secondsToolStripMenuItem2.Text = "20 Seconds";
             // 
             // minuteToolStripMenuItem
             // 
             this.minuteToolStripMenuItem.Name = "minuteToolStripMenuItem";
-            this.minuteToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.minuteToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.minuteToolStripMenuItem.Text = "1 Minute";
             // 
             // noLimitToolStripMenuItem
             // 
             this.noLimitToolStripMenuItem.Name = "noLimitToolStripMenuItem";
-            this.noLimitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.noLimitToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
             this.noLimitToolStripMenuItem.Text = "No Limit";
-            // 
-            // StartGameButton
-            // 
-            this.StartGameButton.Location = new System.Drawing.Point(17, 36);
-            this.StartGameButton.Name = "StartGameButton";
-            this.StartGameButton.Size = new System.Drawing.Size(181, 35);
-            this.StartGameButton.TabIndex = 15;
-            this.StartGameButton.Text = "Start Game";
-            this.StartGameButton.UseVisualStyleBackColor = true;
-            // 
-            // ResetGameButton
-            // 
-            this.ResetGameButton.Location = new System.Drawing.Point(218, 36);
-            this.ResetGameButton.Name = "ResetGameButton";
-            this.ResetGameButton.Size = new System.Drawing.Size(181, 35);
-            this.ResetGameButton.TabIndex = 16;
-            this.ResetGameButton.Text = "Reset Game";
-            this.ResetGameButton.UseVisualStyleBackColor = true;
-            // 
-            // ForwardLogButton
-            // 
-            this.ForwardLogButton.Location = new System.Drawing.Point(17, 100);
-            this.ForwardLogButton.Name = "ForwardLogButton";
-            this.ForwardLogButton.Size = new System.Drawing.Size(181, 35);
-            this.ForwardLogButton.TabIndex = 17;
-            this.ForwardLogButton.Text = "Step Forward In Log";
-            this.ForwardLogButton.UseVisualStyleBackColor = true;
-            // 
-            // BackLogButton
-            // 
-            this.BackLogButton.Location = new System.Drawing.Point(17, 150);
-            this.BackLogButton.Name = "BackLogButton";
-            this.BackLogButton.Size = new System.Drawing.Size(181, 35);
-            this.BackLogButton.TabIndex = 18;
-            this.BackLogButton.Text = "Step Back In Log";
-            this.BackLogButton.UseVisualStyleBackColor = true;
-            // 
-            // WhoseTurnLabel
-            // 
-            this.WhoseTurnLabel.AutoSize = true;
-            this.WhoseTurnLabel.Location = new System.Drawing.Point(248, 80);
-            this.WhoseTurnLabel.Name = "WhoseTurnLabel";
-            this.WhoseTurnLabel.Size = new System.Drawing.Size(119, 24);
-            this.WhoseTurnLabel.TabIndex = 19;
-            this.WhoseTurnLabel.Text = "Whose Turn:";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(252, 107);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 108);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
             // 
             // Connect4Form
             // 
@@ -1228,11 +1228,11 @@ namespace Connect4Interface
             this.YellowGroupBox.PerformLayout();
             this.ControlGroupBox.ResumeLayout(false);
             this.ControlGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.RedGroupBox.ResumeLayout(false);
             this.RedGroupBox.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
