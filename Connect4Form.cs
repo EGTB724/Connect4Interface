@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Connect4Interface
 {
@@ -286,8 +287,10 @@ namespace Connect4Interface
             };
 
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
+                //Returns the path + filename 
                 string filename = openFileDialog1.FileName;
                 MessageBox.Show(filename);
+                Process.Start(filename);
             }
         }
 
