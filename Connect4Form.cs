@@ -411,11 +411,11 @@ namespace Connect4Interface
             BackLogButton.Enabled = true;
             backLogIndex = moveLog.Count;
 
-            string message = "";
-            for(int i=0; i<moveLog.Count; i++) { 
-                message += "Move " + i + ": [" + moveLog[i].row + "][" + moveLog[i].col + "]";
-            }
-            MessageBox.Show(message);
+            //string message = "";
+            //for(int i=0; i<moveLog.Count; i++) { 
+            //    message += "Move " + i + ": [" + moveLog[i].row + "][" + moveLog[i].col + "]";
+            //}
+            //MessageBox.Show(message);
         }
 
         //Flips the array (swaps 1 and -1)
