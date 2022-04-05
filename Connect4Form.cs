@@ -12,6 +12,16 @@ using System.Diagnostics;
 
 namespace Connect4Interface
 {
+    struct Move {
+        public string turn;
+        public int row;
+        public int col;
+        public Move(string turn, int row, int col) {
+            this.turn = turn;
+            this.row = row;
+            this.col = col;
+        }
+    }
     public partial class Connect4Form : Form
     {
         //Global variables
@@ -20,6 +30,10 @@ namespace Connect4Interface
 
         //Used to represent the board visually (with pictures)
         PictureBox[,] formBoard;
+
+        //Used to store the log of the moves that have been made
+        List<Move> moveLog = new List<Move>();
+        int backLogIndex;
 
         //Indicates whose turn is is
         string turn;
@@ -51,10 +65,12 @@ namespace Connect4Interface
                                             { p40, p41, p42, p43, p44, p45, p46 },
                                             { p50, p51, p52, p53, p54, p55, p56 } };
 
+            moveLog.Clear();
             turn = "red";
-
+                        
             //Start with the game board disabled
             disableAllTiles();
+            disableLogButtons();
         }
 
         private void StartOverButton_Click(object sender, EventArgs e)
@@ -77,6 +93,7 @@ namespace Connect4Interface
                 }
             }
 
+            moveLog.Clear();
             StartOverButton.Enabled = false;
             turnIndicator.BackgroundImage = Properties.Resources.redchip;
             turn = "red";
@@ -162,8 +179,7 @@ namespace Connect4Interface
                     //Check if the player has won
                     if (hasWon())
                     {
-                        MessageBox.Show("Red player won!!");
-                        disableAllTiles();
+                        gameFinished("Red");
                         return;
                     }
                     else
@@ -224,7 +240,7 @@ namespace Connect4Interface
 
                 //Call the executable
                 Process process = new System.Diagnostics.Process();
-                process.StartInfo.FileName = RedPlayerLabel.Text;
+                process.StartInfo.FileName = YellowPlayerLabel.Text;
                 process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
                 process.Start();
                 process.WaitForExit();
@@ -239,11 +255,13 @@ namespace Connect4Interface
                 formBoard[row,col].BackgroundImage = Properties.Resources.yellowchip;
                 formBoard[row,col].Tag = "yellow";
 
+                Move nextMove = new Move(turn, row, col);
+                moveLog.Add(nextMove);
+
                 //Check if the player has won
                 if (hasWon())
                 {
-                    MessageBox.Show("Yellow player won!!");
-                    disableAllTiles();
+                    gameFinished("Yellow");
                     return;
                 }
 
@@ -285,12 +303,14 @@ namespace Connect4Interface
                 board[row, col] = 1;
                 formBoard[row, col].BackgroundImage = Properties.Resources.redchip;
                 formBoard[row, col].Tag = "red";
+                
+                Move nextMove = new Move(turn, row, col);
+                moveLog.Add(nextMove);
 
                 //Check if the player has won
                 if (hasWon())
                 {
-                    MessageBox.Show("Red player won!!");
-                    disableAllTiles();
+                    gameFinished("Red");
                     return;
                 }
 
@@ -335,6 +355,8 @@ namespace Connect4Interface
             int col = (int)(tileName[2] - '0');
 
             board[row, col] = 1;
+            Move nextMove = new Move(turn, row, col);
+            moveLog.Add(nextMove);
         }
 
         //Check the board to see if there is any line of 4 1's
@@ -381,6 +403,19 @@ namespace Connect4Interface
                 }
             }
             return false;
+        }
+
+        public void gameFinished(string winnerColor) {
+            disableAllTiles();
+            MessageBox.Show(winnerColor + " player won!!");
+            BackLogButton.Enabled = true;
+            backLogIndex = moveLog.Count;
+
+            string message = "";
+            for(int i=0; i<moveLog.Count; i++) { 
+                message += "Move " + i + ": [" + moveLog[i].row + "][" + moveLog[i].col + "]";
+            }
+            MessageBox.Show(message);
         }
 
         //Flips the array (swaps 1 and -1)
@@ -518,6 +553,55 @@ namespace Connect4Interface
             catch (Exception Ex)
             {
                 Console.WriteLine(Ex.ToString());
+            }
+        }
+
+
+
+        private void ForwardLogButton_Click(object sender,EventArgs e) {
+            stepForwardInLog();
+        }
+
+        private void BackLogButton_Click(object sender,EventArgs e) {
+            stepBackInLog();
+        }
+
+        public void disableLogButtons() {
+            ForwardLogButton.Enabled = false;
+            BackLogButton.Enabled = false;
+            forwardInLogToolStripMenuItem.Enabled = false;
+            backwardInLogToolStripMenuItem.Enabled = false;
+        }
+
+        public void stepForwardInLog() {
+            int row = moveLog[backLogIndex].row;
+            int col = moveLog[backLogIndex].col;
+            string turn = moveLog[backLogIndex].turn;
+
+            if(turn == "red") {
+                formBoard[row, col].BackgroundImage = Properties.Resources.redchip;
+            } else if(turn == "yellow") { 
+                formBoard[row, col].BackgroundImage = Properties.Resources.yellowchip;
+            }
+            BackLogButton.Enabled = true;
+            
+            backLogIndex++;
+            if(backLogIndex >= moveLog.Count) {
+                ForwardLogButton.Enabled = false;
+            }
+        }
+
+        public void stepBackInLog() {
+            backLogIndex--;
+            int row = moveLog[backLogIndex].row;
+            int col = moveLog[backLogIndex].col;
+
+            //MessageBox.Show("This selected row and col: [" + row + "][" + col + "]");
+            formBoard[row, col].BackgroundImage = null;
+            ForwardLogButton.Enabled = true;
+
+            if(backLogIndex == 0) { 
+                BackLogButton.Enabled = false;
             }
         }
 
