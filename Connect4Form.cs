@@ -41,6 +41,10 @@ namespace Connect4Interface
         //Number of rows and columns in a traditional connect 4 board
         const int NUM_ROWS = 6;
         const int NUM_COLS = 7;
+        const int FIVE_SECONDS_MILLI = 5000;
+        const int TEN_SECONDS_MILLI = 10000;
+        const int TWENTY_SECONDS_MILLI = 20000;
+        const int ONE_MINUTE_MILLI = 60000;
 
         public Connect4Form()
         {
@@ -93,8 +97,10 @@ namespace Connect4Interface
                 }
             }
 
+            disableLogButtons();
             moveLog.Clear();
             StartOverButton.Enabled = false;
+            startGameToolStripMenuItem.Enabled = false;
             turnIndicator.BackgroundImage = Properties.Resources.redchip;
             turn = "red";
             redTurn();
@@ -115,8 +121,11 @@ namespace Connect4Interface
                 }
             }
 
+            disableLogButtons();
+            moveLog.Clear();
             turnIndicator.BackgroundImage = null;
             StartOverButton.Enabled = true;
+            startGameToolStripMenuItem.Enabled = true;
         }
 
         private void leaveTile(object sender, EventArgs e)
@@ -179,7 +188,7 @@ namespace Connect4Interface
                     //Check if the player has won
                     if (hasWon())
                     {
-                        gameFinished("Red");
+                        playerWon("Red");
                         return;
                     }
                     else
@@ -239,11 +248,11 @@ namespace Connect4Interface
                 outputBoard();
 
                 //Call the executable
-                Process process = new System.Diagnostics.Process();
-                process.StartInfo.FileName = YellowPlayerLabel.Text;
-                process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                process.Start();
-                process.WaitForExit();
+                bool processExited = runExecutable();
+                if(processExited == false) {
+                    quitGameTimeLimit();
+                    return;
+                }
 
                 //Take in the move played by the computer
                 string text = System.IO.File.ReadAllText("move.txt");
@@ -261,7 +270,7 @@ namespace Connect4Interface
                 //Check if the player has won
                 if (hasWon())
                 {
-                    gameFinished("Yellow");
+                    playerWon("Yellow");
                     return;
                 }
 
@@ -288,11 +297,11 @@ namespace Connect4Interface
                 outputBoard();
 
                 //Call the executable
-                Process process = new System.Diagnostics.Process();
-                process.StartInfo.FileName = RedPlayerLabel.Text;
-                process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                process.Start();
-                process.WaitForExit();
+                bool processExited = runExecutable();
+                if(processExited == false) {
+                    quitGameTimeLimit();
+                    return;
+                }
 
                 //Take in the move played by the computer
                 string text = System.IO.File.ReadAllText("move.txt");
@@ -310,7 +319,7 @@ namespace Connect4Interface
                 //Check if the player has won
                 if (hasWon())
                 {
-                    gameFinished("Red");
+                    playerWon("Red");
                     return;
                 }
 
@@ -320,6 +329,50 @@ namespace Connect4Interface
                 yellowTurn();
                 return;
             }
+        }
+
+        public bool runExecutable() {
+            Process process = new System.Diagnostics.Process();
+            if(turn == "red") { 
+                process.StartInfo.FileName = RedPlayerLabel.Text;
+            } else { 
+                process.StartInfo.FileName = YellowPlayerLabel.Text;
+            }
+            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+            return startAndExitProcess(process);
+        }
+
+        public bool startAndExitProcess(Process process) {
+            bool processExited;
+            if(FiveSeconds_LimitMenuItem.Checked) { 
+                process.Start();
+                processExited = process.WaitForExit(FIVE_SECONDS_MILLI);
+            } else if(TenSeconds_LimitMenuItem.Checked) { 
+                process.Start();
+                processExited = process.WaitForExit(TEN_SECONDS_MILLI);
+            } else if(TwentySeconds_LimitMenuItem.Checked) { 
+                process.Start();
+                processExited = process.WaitForExit(TWENTY_SECONDS_MILLI);
+            } else if(OneMinute_LimitMenuItem.Checked) { 
+                process.Start();
+                processExited = process.WaitForExit(ONE_MINUTE_MILLI);
+            } else { 
+                process.Start();
+                process.WaitForExit();
+                processExited = true;
+            }
+            return processExited;
+        }
+
+        public void quitGameTimeLimit() {
+            string message = "";
+            if(turn == "red") { 
+                message += "Game exited because Red took too long to run.";
+            } else { 
+                message += "Game exited because Yellow took too long to run.";
+            }
+            MessageBox.Show(message);
+            gameStopped();
         }
 
         //Takes in the name of the tile and returns whether it would be valid to play there
@@ -405,17 +458,21 @@ namespace Connect4Interface
             return false;
         }
 
-        public void gameFinished(string winnerColor) {
-            disableAllTiles();
+        public void playerWon(string winnerColor) {
             MessageBox.Show(winnerColor + " player won!!");
-            BackLogButton.Enabled = true;
-            backLogIndex = moveLog.Count;
+            gameStopped();
 
             //string message = "";
             //for(int i=0; i<moveLog.Count; i++) { 
             //    message += "Move " + i + ": [" + moveLog[i].row + "][" + moveLog[i].col + "]";
             //}
             //MessageBox.Show(message);
+        }
+
+        public void gameStopped() {
+            disableAllTiles();
+            BackLogButton.Enabled = true;
+            backLogIndex = moveLog.Count;
         }
 
         //Flips the array (swaps 1 and -1)
@@ -584,10 +641,12 @@ namespace Connect4Interface
                 formBoard[row, col].BackgroundImage = Properties.Resources.yellowchip;
             }
             BackLogButton.Enabled = true;
+            backwardInLogToolStripMenuItem.Enabled = true;
             
             backLogIndex++;
             if(backLogIndex >= moveLog.Count) {
                 ForwardLogButton.Enabled = false;
+                forwardInLogToolStripMenuItem.Enabled = false;
             }
         }
 
@@ -599,11 +658,71 @@ namespace Connect4Interface
             //MessageBox.Show("This selected row and col: [" + row + "][" + col + "]");
             formBoard[row, col].BackgroundImage = null;
             ForwardLogButton.Enabled = true;
+            forwardInLogToolStripMenuItem.Enabled = true;
 
             if(backLogIndex == 0) { 
                 BackLogButton.Enabled = false;
+                backwardInLogToolStripMenuItem.Enabled = false;
             }
         }
+
+        private void FiveSeconds_LimitMenuItem_Click(object sender,EventArgs e) {
+           if(FiveSeconds_LimitMenuItem.Checked == false) { 
+                FiveSeconds_LimitMenuItem.Checked = true;
+
+                TenSeconds_LimitMenuItem.Checked = false;
+                TwentySeconds_LimitMenuItem.Checked = false;
+                OneMinute_LimitMenuItem.Checked = false;
+                NoLimit_LimitMenuItem.Checked = false;
+           }
+        }
+
+        private void TenSeconds_LimitMenuItem_Click(object sender,EventArgs e) {
+            if(TenSeconds_LimitMenuItem.Checked == false) { 
+                TenSeconds_LimitMenuItem.Checked = true;
+                
+                FiveSeconds_LimitMenuItem.Checked = false;
+                TwentySeconds_LimitMenuItem.Checked = false;
+                OneMinute_LimitMenuItem.Checked = false;
+                NoLimit_LimitMenuItem.Checked = false;
+           }
+        }
+
+        private void TwentySeconds_LimitMenuItem_Click(object sender,EventArgs e) {
+            if(TwentySeconds_LimitMenuItem.Checked == false) { 
+                TwentySeconds_LimitMenuItem.Checked = true;
+                
+                FiveSeconds_LimitMenuItem.Checked = false;
+                TenSeconds_LimitMenuItem.Checked = false;
+                OneMinute_LimitMenuItem.Checked = false;
+                NoLimit_LimitMenuItem.Checked = false;
+           }
+        }
+
+        private void OneMinut_LimitMenuItem_Click(object sender,EventArgs e) {
+            if(OneMinute_LimitMenuItem.Checked == false) { 
+                OneMinute_LimitMenuItem.Checked = true;
+                
+                FiveSeconds_LimitMenuItem.Checked = false;
+                TenSeconds_LimitMenuItem.Checked = false;
+                TwentySeconds_LimitMenuItem.Checked = false;
+                NoLimit_LimitMenuItem.Checked = false;
+           }
+        }
+
+        private void NoLimit_LimitMenuItem_Click(object sender,EventArgs e) {
+            if(NoLimit_LimitMenuItem.Checked == false) { 
+                NoLimit_LimitMenuItem.Checked = true;
+                
+                FiveSeconds_LimitMenuItem.Checked = false;
+                TenSeconds_LimitMenuItem.Checked = false;
+                TwentySeconds_LimitMenuItem.Checked = false;
+                OneMinute_LimitMenuItem.Checked = false;
+           }
+        }
+
+
+
 
 
 

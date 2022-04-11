@@ -75,6 +75,7 @@ namespace Connect4Interface
             this.StartOverButton = new System.Windows.Forms.Button();
             this.YellowComputerButton = new System.Windows.Forms.Button();
             this.YellowGroupBox = new System.Windows.Forms.GroupBox();
+            this.YellowPlayerDescriptionLabel = new System.Windows.Forms.Label();
             this.YellowHumanButton = new System.Windows.Forms.Button();
             this.YelloScoreLabel = new System.Windows.Forms.Label();
             this.YellowPlayerLabel = new System.Windows.Forms.Label();
@@ -91,6 +92,7 @@ namespace Connect4Interface
             this.RedConsoleWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.RedScoreLabel = new System.Windows.Forms.Label();
             this.RedGroupBox = new System.Windows.Forms.GroupBox();
+            this.RedPlayerDescriptionLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,11 +105,11 @@ namespace Connect4Interface
             this.backwardInLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.computerTimeLimitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.secondsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.secondsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.secondsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.minuteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noLimitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiveSeconds_LimitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TenSeconds_LimitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TwentySeconds_LimitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OneMinute_LimitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NoLimit_LimitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.p06)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.p05)).BeginInit();
@@ -838,6 +840,7 @@ namespace Connect4Interface
             // 
             // YellowGroupBox
             // 
+            this.YellowGroupBox.Controls.Add(this.YellowPlayerDescriptionLabel);
             this.YellowGroupBox.Controls.Add(this.YellowHumanButton);
             this.YellowGroupBox.Controls.Add(this.YelloScoreLabel);
             this.YellowGroupBox.Controls.Add(this.YellowPlayerLabel);
@@ -849,6 +852,15 @@ namespace Connect4Interface
             this.YellowGroupBox.TabIndex = 7;
             this.YellowGroupBox.TabStop = false;
             this.YellowGroupBox.Text = "Yellow";
+            // 
+            // YellowPlayerDescriptionLabel
+            // 
+            this.YellowPlayerDescriptionLabel.AutoSize = true;
+            this.YellowPlayerDescriptionLabel.Location = new System.Drawing.Point(12, 85);
+            this.YellowPlayerDescriptionLabel.Name = "YellowPlayerDescriptionLabel";
+            this.YellowPlayerDescriptionLabel.Size = new System.Drawing.Size(56, 20);
+            this.YellowPlayerDescriptionLabel.TabIndex = 20;
+            this.YellowPlayerDescriptionLabel.Text = "Player:";
             // 
             // YellowHumanButton
             // 
@@ -872,11 +884,11 @@ namespace Connect4Interface
             // YellowPlayerLabel
             // 
             this.YellowPlayerLabel.AutoSize = true;
-            this.YellowPlayerLabel.Location = new System.Drawing.Point(14, 85);
+            this.YellowPlayerLabel.Location = new System.Drawing.Point(74, 85);
             this.YellowPlayerLabel.Name = "YellowPlayerLabel";
-            this.YellowPlayerLabel.Size = new System.Drawing.Size(136, 20);
+            this.YellowPlayerLabel.Size = new System.Drawing.Size(61, 20);
             this.YellowPlayerLabel.TabIndex = 17;
-            this.YellowPlayerLabel.Text = "Player Description";
+            this.YellowPlayerLabel.Text = "Human";
             // 
             // YellowConsoleWindowCheckBox
             // 
@@ -976,11 +988,11 @@ namespace Connect4Interface
             // RedPlayerLabel
             // 
             this.RedPlayerLabel.AutoSize = true;
-            this.RedPlayerLabel.Location = new System.Drawing.Point(14, 94);
+            this.RedPlayerLabel.Location = new System.Drawing.Point(74, 94);
             this.RedPlayerLabel.Name = "RedPlayerLabel";
-            this.RedPlayerLabel.Size = new System.Drawing.Size(136, 20);
+            this.RedPlayerLabel.Size = new System.Drawing.Size(61, 20);
             this.RedPlayerLabel.TabIndex = 12;
-            this.RedPlayerLabel.Text = "Player Description";
+            this.RedPlayerLabel.Text = "Human";
             // 
             // RedConsoleWindowCheckBox
             // 
@@ -1003,6 +1015,7 @@ namespace Connect4Interface
             // 
             // RedGroupBox
             // 
+            this.RedGroupBox.Controls.Add(this.RedPlayerDescriptionLabel);
             this.RedGroupBox.Controls.Add(this.RedHumanButton);
             this.RedGroupBox.Controls.Add(this.RedScoreLabel);
             this.RedGroupBox.Controls.Add(this.RedComputerButton);
@@ -1015,6 +1028,15 @@ namespace Connect4Interface
             this.RedGroupBox.TabStop = false;
             this.RedGroupBox.Text = "Red";
             // 
+            // RedPlayerDescriptionLabel
+            // 
+            this.RedPlayerDescriptionLabel.AutoSize = true;
+            this.RedPlayerDescriptionLabel.Location = new System.Drawing.Point(12, 94);
+            this.RedPlayerDescriptionLabel.Name = "RedPlayerDescriptionLabel";
+            this.RedPlayerDescriptionLabel.Size = new System.Drawing.Size(56, 20);
+            this.RedPlayerDescriptionLabel.TabIndex = 21;
+            this.RedPlayerDescriptionLabel.Text = "Player:";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
@@ -1025,7 +1047,6 @@ namespace Connect4Interface
             this.computerTimeLimitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1538, 33);
             this.menuStrip1.TabIndex = 10;
             this.menuStrip1.Text = "menuStrip1";
@@ -1073,74 +1094,86 @@ namespace Connect4Interface
             // startGameToolStripMenuItem
             // 
             this.startGameToolStripMenuItem.Name = "startGameToolStripMenuItem";
-            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.startGameToolStripMenuItem.Text = "Start Game";
+            this.startGameToolStripMenuItem.Click += new System.EventHandler(this.StartOverButton_Click);
             // 
             // endGameToolStripMenuItem
             // 
             this.endGameToolStripMenuItem.Name = "endGameToolStripMenuItem";
-            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
-            this.endGameToolStripMenuItem.Text = "End Game";
+            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.endGameToolStripMenuItem.Text = "Reset Game";
+            this.endGameToolStripMenuItem.Click += new System.EventHandler(this.ResetGameButton_Click);
             // 
             // forwardInLogToolStripMenuItem
             // 
             this.forwardInLogToolStripMenuItem.Name = "forwardInLogToolStripMenuItem";
-            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.forwardInLogToolStripMenuItem.Text = "Forward In Log";
+            this.forwardInLogToolStripMenuItem.Click += new System.EventHandler(this.ForwardLogButton_Click);
             // 
             // backwardInLogToolStripMenuItem
             // 
             this.backwardInLogToolStripMenuItem.Name = "backwardInLogToolStripMenuItem";
-            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.backwardInLogToolStripMenuItem.Text = "Backward In Log";
+            this.backwardInLogToolStripMenuItem.Click += new System.EventHandler(this.BackLogButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // computerTimeLimitToolStripMenuItem
             // 
+            this.computerTimeLimitToolStripMenuItem.CheckOnClick = true;
             this.computerTimeLimitToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.secondsToolStripMenuItem,
-            this.secondsToolStripMenuItem1,
-            this.secondsToolStripMenuItem2,
-            this.minuteToolStripMenuItem,
-            this.noLimitToolStripMenuItem});
+            this.FiveSeconds_LimitMenuItem,
+            this.TenSeconds_LimitMenuItem,
+            this.TwentySeconds_LimitMenuItem,
+            this.OneMinute_LimitMenuItem,
+            this.NoLimit_LimitMenuItem});
             this.computerTimeLimitToolStripMenuItem.Name = "computerTimeLimitToolStripMenuItem";
             this.computerTimeLimitToolStripMenuItem.Size = new System.Drawing.Size(194, 29);
             this.computerTimeLimitToolStripMenuItem.Text = "Computer Time Limit";
             // 
-            // secondsToolStripMenuItem
+            // FiveSeconds_LimitMenuItem
             // 
-            this.secondsToolStripMenuItem.Name = "secondsToolStripMenuItem";
-            this.secondsToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
-            this.secondsToolStripMenuItem.Text = "5 Seconds";
+            this.FiveSeconds_LimitMenuItem.Name = "FiveSeconds_LimitMenuItem";
+            this.FiveSeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.FiveSeconds_LimitMenuItem.Text = "5 Seconds";
+            this.FiveSeconds_LimitMenuItem.Click += new System.EventHandler(this.FiveSeconds_LimitMenuItem_Click);
             // 
-            // secondsToolStripMenuItem1
+            // TenSeconds_LimitMenuItem
             // 
-            this.secondsToolStripMenuItem1.Name = "secondsToolStripMenuItem1";
-            this.secondsToolStripMenuItem1.Size = new System.Drawing.Size(206, 34);
-            this.secondsToolStripMenuItem1.Text = "10 Seconds";
+            this.TenSeconds_LimitMenuItem.Checked = true;
+            this.TenSeconds_LimitMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TenSeconds_LimitMenuItem.Name = "TenSeconds_LimitMenuItem";
+            this.TenSeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.TenSeconds_LimitMenuItem.Text = "10 Seconds";
+            this.TenSeconds_LimitMenuItem.Click += new System.EventHandler(this.TenSeconds_LimitMenuItem_Click);
             // 
-            // secondsToolStripMenuItem2
+            // TwentySeconds_LimitMenuItem
             // 
-            this.secondsToolStripMenuItem2.Name = "secondsToolStripMenuItem2";
-            this.secondsToolStripMenuItem2.Size = new System.Drawing.Size(206, 34);
-            this.secondsToolStripMenuItem2.Text = "20 Seconds";
+            this.TwentySeconds_LimitMenuItem.Name = "TwentySeconds_LimitMenuItem";
+            this.TwentySeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.TwentySeconds_LimitMenuItem.Text = "20 Seconds";
+            this.TwentySeconds_LimitMenuItem.Click += new System.EventHandler(this.TwentySeconds_LimitMenuItem_Click);
             // 
-            // minuteToolStripMenuItem
+            // OneMinute_LimitMenuItem
             // 
-            this.minuteToolStripMenuItem.Name = "minuteToolStripMenuItem";
-            this.minuteToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
-            this.minuteToolStripMenuItem.Text = "1 Minute";
+            this.OneMinute_LimitMenuItem.Name = "OneMinute_LimitMenuItem";
+            this.OneMinute_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.OneMinute_LimitMenuItem.Text = "1 Minute";
+            this.OneMinute_LimitMenuItem.Click += new System.EventHandler(this.OneMinut_LimitMenuItem_Click);
             // 
-            // noLimitToolStripMenuItem
+            // NoLimit_LimitMenuItem
             // 
-            this.noLimitToolStripMenuItem.Name = "noLimitToolStripMenuItem";
-            this.noLimitToolStripMenuItem.Size = new System.Drawing.Size(206, 34);
-            this.noLimitToolStripMenuItem.Text = "No Limit";
+            this.NoLimit_LimitMenuItem.Name = "NoLimit_LimitMenuItem";
+            this.NoLimit_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.NoLimit_LimitMenuItem.Text = "No Limit";
+            this.NoLimit_LimitMenuItem.Click += new System.EventHandler(this.NoLimit_LimitMenuItem_Click);
             // 
             // Connect4Form
             // 
@@ -1282,17 +1315,19 @@ namespace Connect4Interface
         private System.Windows.Forms.ToolStripMenuItem forwardInLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backwardInLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem computerTimeLimitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem secondsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem secondsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem secondsToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem minuteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem noLimitToolStripMenuItem;
         private System.Windows.Forms.PictureBox turnIndicator;
         private System.Windows.Forms.Label WhoseTurnLabel;
         private System.Windows.Forms.Button BackLogButton;
         private System.Windows.Forms.Button ForwardLogButton;
         private System.Windows.Forms.Button ResetGameButton;
+        private System.Windows.Forms.ToolStripMenuItem computerTimeLimitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FiveSeconds_LimitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TwentySeconds_LimitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OneMinute_LimitMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem NoLimit_LimitMenuItem;
+        private System.Windows.Forms.Label YellowPlayerDescriptionLabel;
+        private System.Windows.Forms.Label RedPlayerDescriptionLabel;
+        private System.Windows.Forms.ToolStripMenuItem TenSeconds_LimitMenuItem;
     }
 }
 
