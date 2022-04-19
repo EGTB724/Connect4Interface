@@ -260,10 +260,21 @@ namespace Connect4Interface
                 }
 
                 //Take in the move played by the computer
-                string text = System.IO.File.ReadAllText("move.txt");
+                //Get move.txt from the working directory of the computer player
+                string directory = Path.GetDirectoryName(YellowPlayerLabel.Text);
+                string text = System.IO.File.ReadAllText(directory + "/move.txt");
 
                 int row = (int)(text[0] - '0');
                 int col = (int)(text[2] - '0');
+
+                //Make sure the move is legal
+                if (!isLegal(row, col))
+                {
+                    string message = "Red won because Yellow made an illegal move";
+                    MessageBox.Show(message);
+                    gameStopped();
+                    return;
+                }
 
                 board[row, col] = 1;
                 formBoard[row,col].BackgroundImage = Properties.Resources.yellowchip;
@@ -309,10 +320,20 @@ namespace Connect4Interface
                 }
 
                 //Take in the move played by the computer
-                string text = System.IO.File.ReadAllText("move.txt");
+                //Get move.txt from the working directory of the computer player
+                string directory = Path.GetDirectoryName(RedPlayerLabel.Text);
+                string text = System.IO.File.ReadAllText(directory + "/move.txt");
 
                 int row = (int)(text[0] - '0');
                 int col = (int)(text[2] - '0');
+
+                //Make sure the move is legal
+                if (!isLegal(row, col)) {
+                    string message = "Yellow won because Red made an illegal move";
+                    MessageBox.Show(message);
+                    gameStopped();
+                    return;
+                }
 
                 board[row, col] = 1;
                 formBoard[row, col].BackgroundImage = Properties.Resources.redchip;
@@ -340,10 +361,26 @@ namespace Connect4Interface
             Process process = new System.Diagnostics.Process();
             if(turn == "red") { 
                 process.StartInfo.FileName = RedPlayerLabel.Text;
+
+                //You have to manually set the working directory of the called executable or else it will assume its the same as the c# program
+                process.StartInfo.WorkingDirectory = Path.GetDirectoryName(RedPlayerLabel.Text);
+
+                //Check if the show console window checkbox is check or not
+                if (!RedConsoleWindowCheckBox.Checked) {
+                    process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                }
             } else { 
                 process.StartInfo.FileName = YellowPlayerLabel.Text;
-            }
-            process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+
+                //You have to manually set the working directory of the called executable or else it will assume its the same as the c# program
+                process.StartInfo.WorkingDirectory = Path.GetDirectoryName(YellowPlayerLabel.Text);
+
+                //Check if the show console window checkbox is check or not
+                if (!YellowConsoleWindowCheckBox.Checked)
+                {
+                    process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
+                }
+            }            
             return startAndExitProcess(process);
         }
 
@@ -404,6 +441,28 @@ namespace Connect4Interface
             }
 
             return false;
+        }
+
+        //Check if the move is legal
+        private bool isLegal(int row, int col)
+        {
+            //Check if the spot is open
+            if (board[row, col] != 0) {
+                return false;
+            }
+
+            //Check if we're in the bottom row
+            if (row == NUM_ROWS - 1) {
+                return true;
+            }
+
+            //If we're not in the borrom row, make sure there's a piece below us
+            if (board[row + 1, col] != 0) {
+                return true;
+            }
+            else {
+                return false;
+            }
         }
 
         //Takes in the name of the tile and adds the value to array 
@@ -558,8 +617,6 @@ namespace Connect4Interface
             {
                 //Returns the path + filename 
                 string filename = openFileDialog1.FileName;
-                //MessageBox.Show(filename);
-                //Process.Start(filename);
                 RedPlayerLabel.Text = filename;
             }
         }
@@ -571,10 +628,21 @@ namespace Connect4Interface
 
         private void outputBoard() 
         {
+            string directory = "";
             string outputFile = "board.txt";
             string boardString = "";
 
-            string path = Directory.GetCurrentDirectory();
+            //We want to put the board.txt in the location of the computer .exe, NOT in our own directory
+            //This is because we should not assume that the computer .exe is in the same directory as us
+            if (turn == "red")
+            {
+                directory = Path.GetDirectoryName(RedPlayerLabel.Text);
+            }
+            else
+            {
+                directory = Path.GetDirectoryName(YellowPlayerLabel.Text);
+            }
+            outputFile = directory + "/" + outputFile;
 
             for (int row = 0; row < NUM_ROWS; row++) 
             {
