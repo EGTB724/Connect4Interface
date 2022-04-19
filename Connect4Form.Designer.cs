@@ -1096,35 +1096,35 @@ namespace Connect4Interface
             // startGameToolStripMenuItem
             // 
             this.startGameToolStripMenuItem.Name = "startGameToolStripMenuItem";
-            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.startGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.startGameToolStripMenuItem.Text = "Start Game";
             this.startGameToolStripMenuItem.Click += new System.EventHandler(this.StartOverButton_Click);
             // 
             // endGameToolStripMenuItem
             // 
             this.endGameToolStripMenuItem.Name = "endGameToolStripMenuItem";
-            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.endGameToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.endGameToolStripMenuItem.Text = "Reset Game";
             this.endGameToolStripMenuItem.Click += new System.EventHandler(this.ResetGameButton_Click);
             // 
             // forwardInLogToolStripMenuItem
             // 
             this.forwardInLogToolStripMenuItem.Name = "forwardInLogToolStripMenuItem";
-            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.forwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.forwardInLogToolStripMenuItem.Text = "Forward In Log";
             this.forwardInLogToolStripMenuItem.Click += new System.EventHandler(this.ForwardLogButton_Click);
             // 
             // backwardInLogToolStripMenuItem
             // 
             this.backwardInLogToolStripMenuItem.Name = "backwardInLogToolStripMenuItem";
-            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.backwardInLogToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.backwardInLogToolStripMenuItem.Text = "Backward In Log";
             this.backwardInLogToolStripMenuItem.Click += new System.EventHandler(this.BackLogButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // computerTimeLimitToolStripMenuItem
@@ -1143,7 +1143,7 @@ namespace Connect4Interface
             // FiveSeconds_LimitMenuItem
             // 
             this.FiveSeconds_LimitMenuItem.Name = "FiveSeconds_LimitMenuItem";
-            this.FiveSeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.FiveSeconds_LimitMenuItem.Size = new System.Drawing.Size(206, 34);
             this.FiveSeconds_LimitMenuItem.Text = "5 Seconds";
             this.FiveSeconds_LimitMenuItem.Click += new System.EventHandler(this.FiveSeconds_LimitMenuItem_Click);
             // 
@@ -1152,28 +1152,28 @@ namespace Connect4Interface
             this.TenSeconds_LimitMenuItem.Checked = true;
             this.TenSeconds_LimitMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TenSeconds_LimitMenuItem.Name = "TenSeconds_LimitMenuItem";
-            this.TenSeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.TenSeconds_LimitMenuItem.Size = new System.Drawing.Size(206, 34);
             this.TenSeconds_LimitMenuItem.Text = "10 Seconds";
             this.TenSeconds_LimitMenuItem.Click += new System.EventHandler(this.TenSeconds_LimitMenuItem_Click);
             // 
             // TwentySeconds_LimitMenuItem
             // 
             this.TwentySeconds_LimitMenuItem.Name = "TwentySeconds_LimitMenuItem";
-            this.TwentySeconds_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.TwentySeconds_LimitMenuItem.Size = new System.Drawing.Size(206, 34);
             this.TwentySeconds_LimitMenuItem.Text = "20 Seconds";
             this.TwentySeconds_LimitMenuItem.Click += new System.EventHandler(this.TwentySeconds_LimitMenuItem_Click);
             // 
             // OneMinute_LimitMenuItem
             // 
             this.OneMinute_LimitMenuItem.Name = "OneMinute_LimitMenuItem";
-            this.OneMinute_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.OneMinute_LimitMenuItem.Size = new System.Drawing.Size(206, 34);
             this.OneMinute_LimitMenuItem.Text = "1 Minute";
             this.OneMinute_LimitMenuItem.Click += new System.EventHandler(this.OneMinut_LimitMenuItem_Click);
             // 
             // NoLimit_LimitMenuItem
             // 
             this.NoLimit_LimitMenuItem.Name = "NoLimit_LimitMenuItem";
-            this.NoLimit_LimitMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.NoLimit_LimitMenuItem.Size = new System.Drawing.Size(206, 34);
             this.NoLimit_LimitMenuItem.Text = "No Limit";
             this.NoLimit_LimitMenuItem.Click += new System.EventHandler(this.NoLimit_LimitMenuItem_Click);
             // 
