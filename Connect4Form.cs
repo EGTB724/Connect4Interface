@@ -17,7 +17,11 @@ namespace Connect4Interface
         public int row;
         public int col;
         public Move(string turn, int row, int col) {
-            this.turn = turn;
+            if(turn == "red") { 
+                this.turn = "R";
+            } else { 
+                this.turn = "Y";
+            }
             this.row = row;
             this.col = col;
         }
@@ -216,8 +220,7 @@ namespace Connect4Interface
                     //Check if the player has won
                     if (hasWon())
                     {
-                        MessageBox.Show("Yellow player won!!");
-                        disableAllTiles();
+                        playerWon("Yellow");
                         return;
                     }
                     else
@@ -613,8 +616,6 @@ namespace Connect4Interface
             }
         }
 
-
-
         private void ForwardLogButton_Click(object sender,EventArgs e) {
             stepForwardInLog();
         }
@@ -655,7 +656,6 @@ namespace Connect4Interface
             int row = moveLog[backLogIndex].row;
             int col = moveLog[backLogIndex].col;
 
-            //MessageBox.Show("This selected row and col: [" + row + "][" + col + "]");
             formBoard[row, col].BackgroundImage = null;
             ForwardLogButton.Enabled = true;
             forwardInLogToolStripMenuItem.Enabled = true;
@@ -721,16 +721,59 @@ namespace Connect4Interface
            }
         }
 
+        private void SaveLog_FileMenuItem_Click(object sender,EventArgs e) {
+            string logString = "";
+            for(int i=0; i<moveLog.Count; i++) { 
+                logString += moveLog[i].turn + " " + moveLog[i].row + " " + moveLog[i].col + "\n";              
+            }
+            byte[] arr = Encoding.ASCII.GetBytes(logString);
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            Stream saveFileStream;
 
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.FilterIndex = 0;
+            saveFileDialog.RestoreDirectory = true;
 
+            if(saveFileDialog.ShowDialog() == DialogResult.OK) {
+                if((saveFileStream = saveFileDialog.OpenFile()) != null) {
+                    saveFileStream.Write(arr, 0, arr.Length);
+                    saveFileStream.Close();
+                }
+            }
+        }
 
+        private void OpenLog_FileMenuItem_Click(object sender,EventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files (*.txt)|*.txt";    
+            Stream openFileStream;
+            List<string> logTextLines = new List<string>();
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                openFileStream = openFileDialog.OpenFile();
+                StreamReader reader = new StreamReader(openFileStream);
+                while(reader.Peek() != -1) { 
+                    logTextLines.Add(reader.ReadLine());
+                }
+            }
 
+            convertIntoMoveLog(logTextLines);
+        }
 
+        private void convertIntoMoveLog(List<string> logTextLines) {
+            moveLog.Clear();
+            for(int i=0; i<logTextLines.Count; i++) { 
+                string line = logTextLines[i];
 
-        //This is Nathan
-        //Test commit from Ethan
-        //this is hopefully our final change
+                string turn = line.Substring(0,1);
+                string rowString = line.Substring(2,1);
+                string colString = line.Substring(4,1);
+                int row = int.Parse(rowString);
+                int col = int.Parse(colString);
+                
+                Move move = new Move(turn, row, col);
+                moveLog.Add(move);
+            }
+        }
     }
 }

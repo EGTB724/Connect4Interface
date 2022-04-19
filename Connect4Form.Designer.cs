@@ -95,8 +95,8 @@ namespace Connect4Interface
             this.RedPlayerDescriptionLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenLog_FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveLog_FileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.startGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1054,29 +1054,31 @@ namespace Connect4Interface
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openLogFileToolStripMenuItem,
-            this.saveLogFileToolStripMenuItem,
+            this.OpenLog_FileMenuItem,
+            this.SaveLog_FileMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // openLogFileToolStripMenuItem
+            // OpenLog_FileMenuItem
             // 
-            this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
-            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
-            this.openLogFileToolStripMenuItem.Text = "Open Log File...";
+            this.OpenLog_FileMenuItem.Name = "OpenLog_FileMenuItem";
+            this.OpenLog_FileMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.OpenLog_FileMenuItem.Text = "Open Log File...";
+            this.OpenLog_FileMenuItem.Click += new System.EventHandler(this.OpenLog_FileMenuItem_Click);
             // 
-            // saveLogFileToolStripMenuItem
+            // SaveLog_FileMenuItem
             // 
-            this.saveLogFileToolStripMenuItem.Name = "saveLogFileToolStripMenuItem";
-            this.saveLogFileToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
-            this.saveLogFileToolStripMenuItem.Text = "Save Log File...";
+            this.SaveLog_FileMenuItem.Name = "SaveLog_FileMenuItem";
+            this.SaveLog_FileMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.SaveLog_FileMenuItem.Text = "Save Log File...";
+            this.SaveLog_FileMenuItem.Click += new System.EventHandler(this.SaveLog_FileMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(236, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // gameToolStripMenuItem
@@ -1306,8 +1308,8 @@ namespace Connect4Interface
         private System.Windows.Forms.GroupBox RedGroupBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openLogFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveLogFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem OpenLog_FileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SaveLog_FileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem startGameToolStripMenuItem;
