@@ -743,7 +743,6 @@ namespace Connect4Interface
                 TenSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-                NoLimit_LimitMenuItem.Checked = false;
            }
         }
 
@@ -754,7 +753,6 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-                NoLimit_LimitMenuItem.Checked = false;
            }
         }
 
@@ -765,7 +763,6 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TenSeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-                NoLimit_LimitMenuItem.Checked = false;
            }
         }
 
@@ -776,18 +773,6 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TenSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
-                NoLimit_LimitMenuItem.Checked = false;
-           }
-        }
-
-        private void NoLimit_LimitMenuItem_Click(object sender,EventArgs e) {
-            if(NoLimit_LimitMenuItem.Checked == false) { 
-                NoLimit_LimitMenuItem.Checked = true;
-                
-                FiveSeconds_LimitMenuItem.Checked = false;
-                TenSeconds_LimitMenuItem.Checked = false;
-                TwentySeconds_LimitMenuItem.Checked = false;
-                OneMinute_LimitMenuItem.Checked = false;
            }
         }
 
