@@ -1040,15 +1040,15 @@ namespace Connect4Interface
             // 
             // OpenLog_FileMenuItem
             // 
-            this.openLogFileToolStripMenuItem.Name = "openLogFileToolStripMenuItem";
-            this.openLogFileToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.openLogFileToolStripMenuItem.Text = "Open Log File...";
+            this.OpenLog_FileMenuItem.Name = "OpenLog_FileMenuItem";
+            this.OpenLog_FileMenuItem.Size = new System.Drawing.Size(156,22);
+            this.OpenLog_FileMenuItem.Text = "Open Log File...";
             // 
             // SaveLog_FileMenuItem
             // 
-            this.saveLogFileToolStripMenuItem.Name = "saveLogFileToolStripMenuItem";
-            this.saveLogFileToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.saveLogFileToolStripMenuItem.Text = "Save Log File...";
+            this.SaveLog_FileMenuItem.Name = "SaveLog_FileMenuItem";
+            this.SaveLog_FileMenuItem.Size = new System.Drawing.Size(156,22);
+            this.SaveLog_FileMenuItem.Text = "Save Log File...";
             // 
             // exitToolStripMenuItem
             // 
