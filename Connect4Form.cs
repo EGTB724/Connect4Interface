@@ -17,7 +17,11 @@ namespace Connect4Interface
         public int row;
         public int col;
         public Move(string turn, int row, int col) {
-            this.turn = turn;
+            if(turn == "red" || turn == "R") { 
+                this.turn = "R";
+            } else { 
+                this.turn = "Y";
+            }
             this.row = row;
             this.col = col;
         }
@@ -106,8 +110,11 @@ namespace Connect4Interface
             redTurn();
         }
 
-        private void ResetGameButton_Click(object sender, EventArgs e)
-        {
+        private void ResetGameButton_Click(object sender, EventArgs e) {
+            resetGame();
+        }
+
+        public void resetGame() {
             for (int row = 0; row < NUM_ROWS; row++)
             {
                 for (int col = 0; col < NUM_COLS; col++)
@@ -120,7 +127,6 @@ namespace Connect4Interface
                     board[row, col] = 0;
                 }
             }
-
             disableLogButtons();
             moveLog.Clear();
             turnIndicator.BackgroundImage = null;
@@ -216,8 +222,7 @@ namespace Connect4Interface
                     //Check if the player has won
                     if (hasWon())
                     {
-                        MessageBox.Show("Yellow player won!!");
-                        disableAllTiles();
+                        playerWon("Yellow");
                         return;
                     }
                     else
@@ -681,8 +686,6 @@ namespace Connect4Interface
             }
         }
 
-
-
         private void ForwardLogButton_Click(object sender,EventArgs e) {
             stepForwardInLog();
         }
@@ -703,9 +706,9 @@ namespace Connect4Interface
             int col = moveLog[backLogIndex].col;
             string turn = moveLog[backLogIndex].turn;
 
-            if(turn == "red") {
+            if(turn == "R") {
                 formBoard[row, col].BackgroundImage = Properties.Resources.redchip;
-            } else if(turn == "yellow") { 
+            } else if(turn == "Y") { 
                 formBoard[row, col].BackgroundImage = Properties.Resources.yellowchip;
             }
             BackLogButton.Enabled = true;
@@ -723,12 +726,11 @@ namespace Connect4Interface
             int row = moveLog[backLogIndex].row;
             int col = moveLog[backLogIndex].col;
 
-            //MessageBox.Show("This selected row and col: [" + row + "][" + col + "]");
             formBoard[row, col].BackgroundImage = null;
             ForwardLogButton.Enabled = true;
             forwardInLogToolStripMenuItem.Enabled = true;
 
-            if(backLogIndex == 0) { 
+            if(backLogIndex <= 0) { 
                 BackLogButton.Enabled = false;
                 backwardInLogToolStripMenuItem.Enabled = false;
             }
@@ -789,16 +791,66 @@ namespace Connect4Interface
            }
         }
 
+        private void SaveLog_FileMenuItem_Click(object sender,EventArgs e) {
+            string logString = "";
+            for(int i=0; i<moveLog.Count; i++) { 
+                logString += moveLog[i].turn + " " + moveLog[i].row + " " + moveLog[i].col + "\n";              
+            }
+            byte[] arr = Encoding.ASCII.GetBytes(logString);
 
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            Stream saveFileStream;
 
+            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.FilterIndex = 0;
+            saveFileDialog.RestoreDirectory = true;
 
+            if(saveFileDialog.ShowDialog() == DialogResult.OK) {
+                if((saveFileStream = saveFileDialog.OpenFile()) != null) {
+                    saveFileStream.Write(arr, 0, arr.Length);
+                    saveFileStream.Close();
+                }
+            }
+        }
 
+        private void OpenLog_FileMenuItem_Click(object sender,EventArgs e) {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "txt files (*.txt)|*.txt";    
+            Stream openFileStream;
+            List<string> logLines = new List<string>();
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK) { 
+                openFileStream = openFileDialog.OpenFile();
+                StreamReader reader = new StreamReader(openFileStream);
+                while(reader.Peek() != -1) { 
+                    logLines.Add(reader.ReadLine());
+                }
+                resetGame();
+                convertIntoMoveLog(logLines);
+                backLogIndex = 0;
+                ForwardLogButton.Enabled = true;
+                forwardInLogToolStripMenuItem.Enabled = true;
+            }
+        }
 
-
-
-        //This is Nathan
-        //Test commit from Ethan
-        //this is hopefully our final change
+        private void convertIntoMoveLog(List<string> logLines) {
+            for(int i=0; i<logLines.Count; i++) { 
+                string line = logLines[i];
+                string turn = line.Substring(0,1);
+                string rowString = line.Substring(2,1);
+                string colString = line.Substring(4,1);
+                int row = int.Parse(rowString);
+                int col = int.Parse(colString);                
+                Move move = new Move(turn, row, col);
+                moveLog.Add(move);
+            }
+            
+            string message = "";
+            for(int k=0; k<moveLog.Count; k++)
+            {
+                message += moveLog[k].turn + " " + moveLog[k].row + " " + moveLog[k].col + "\n";
+            }
+            MessageBox.Show(message);
+        }
     }
 }
