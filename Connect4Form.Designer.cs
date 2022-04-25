@@ -77,7 +77,7 @@ namespace Connect4Interface
             this.YellowGroupBox = new System.Windows.Forms.GroupBox();
             this.YellowPlayerDescriptionLabel = new System.Windows.Forms.Label();
             this.YellowHumanButton = new System.Windows.Forms.Button();
-            this.YelloScoreLabel = new System.Windows.Forms.Label();
+            this.YellowScoreLabel = new System.Windows.Forms.Label();
             this.YellowPlayerLabel = new System.Windows.Forms.Label();
             this.YellowConsoleWindowCheckBox = new System.Windows.Forms.CheckBox();
             this.ControlGroupBox = new System.Windows.Forms.GroupBox();
@@ -796,7 +796,7 @@ namespace Connect4Interface
             // 
             this.YellowGroupBox.Controls.Add(this.YellowPlayerDescriptionLabel);
             this.YellowGroupBox.Controls.Add(this.YellowHumanButton);
-            this.YellowGroupBox.Controls.Add(this.YelloScoreLabel);
+            this.YellowGroupBox.Controls.Add(this.YellowScoreLabel);
             this.YellowGroupBox.Controls.Add(this.YellowPlayerLabel);
             this.YellowGroupBox.Controls.Add(this.YellowComputerButton);
             this.YellowGroupBox.Controls.Add(this.YellowConsoleWindowCheckBox);
@@ -830,15 +830,15 @@ namespace Connect4Interface
             this.YellowHumanButton.UseVisualStyleBackColor = true;
             this.YellowHumanButton.Click += new System.EventHandler(this.YellowHumanButton_Click);
             // 
-            // YelloScoreLabel
+            // YellowScoreLabel
             // 
-            this.YelloScoreLabel.AutoSize = true;
-            this.YelloScoreLabel.Location = new System.Drawing.Point(9, 100);
-            this.YelloScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.YelloScoreLabel.Name = "YelloScoreLabel";
-            this.YelloScoreLabel.Size = new System.Drawing.Size(47, 13);
-            this.YelloScoreLabel.TabIndex = 19;
-            this.YelloScoreLabel.Text = "Score: 0";
+            this.YellowScoreLabel.AutoSize = true;
+            this.YellowScoreLabel.Location = new System.Drawing.Point(9, 100);
+            this.YellowScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.YellowScoreLabel.Name = "YellowScoreLabel";
+            this.YellowScoreLabel.Size = new System.Drawing.Size(78, 13);
+            this.YellowScoreLabel.TabIndex = 19;
+            this.YellowScoreLabel.Text = "Games Won: 0";
             // 
             // YellowPlayerLabel
             // 
@@ -982,9 +982,9 @@ namespace Connect4Interface
             this.RedScoreLabel.Location = new System.Drawing.Point(9, 110);
             this.RedScoreLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RedScoreLabel.Name = "RedScoreLabel";
-            this.RedScoreLabel.Size = new System.Drawing.Size(47, 13);
+            this.RedScoreLabel.Size = new System.Drawing.Size(78, 13);
             this.RedScoreLabel.TabIndex = 14;
-            this.RedScoreLabel.Text = "Score: 0";
+            this.RedScoreLabel.Text = "Games Won: 0";
             // 
             // RedGroupBox
             // 
@@ -1116,7 +1116,7 @@ namespace Connect4Interface
             // FiveSeconds_LimitMenuItem
             // 
             this.FiveSeconds_LimitMenuItem.Name = "FiveSeconds_LimitMenuItem";
-            this.FiveSeconds_LimitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.FiveSeconds_LimitMenuItem.Size = new System.Drawing.Size(133, 22);
             this.FiveSeconds_LimitMenuItem.Text = "5 Seconds";
             this.FiveSeconds_LimitMenuItem.Click += new System.EventHandler(this.FiveSeconds_LimitMenuItem_Click);
             // 
@@ -1125,21 +1125,21 @@ namespace Connect4Interface
             this.TenSeconds_LimitMenuItem.Checked = true;
             this.TenSeconds_LimitMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TenSeconds_LimitMenuItem.Name = "TenSeconds_LimitMenuItem";
-            this.TenSeconds_LimitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TenSeconds_LimitMenuItem.Size = new System.Drawing.Size(133, 22);
             this.TenSeconds_LimitMenuItem.Text = "10 Seconds";
             this.TenSeconds_LimitMenuItem.Click += new System.EventHandler(this.TenSeconds_LimitMenuItem_Click);
             // 
             // TwentySeconds_LimitMenuItem
             // 
             this.TwentySeconds_LimitMenuItem.Name = "TwentySeconds_LimitMenuItem";
-            this.TwentySeconds_LimitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.TwentySeconds_LimitMenuItem.Size = new System.Drawing.Size(133, 22);
             this.TwentySeconds_LimitMenuItem.Text = "20 Seconds";
             this.TwentySeconds_LimitMenuItem.Click += new System.EventHandler(this.TwentySeconds_LimitMenuItem_Click);
             // 
             // OneMinute_LimitMenuItem
             // 
             this.OneMinute_LimitMenuItem.Name = "OneMinute_LimitMenuItem";
-            this.OneMinute_LimitMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.OneMinute_LimitMenuItem.Size = new System.Drawing.Size(133, 22);
             this.OneMinute_LimitMenuItem.Text = "1 Minute";
             this.OneMinute_LimitMenuItem.Click += new System.EventHandler(this.OneMinut_LimitMenuItem_Click);
             // 
@@ -1272,7 +1272,7 @@ namespace Connect4Interface
         private System.Windows.Forms.CheckBox RedConsoleWindowCheckBox;
         private System.Windows.Forms.Label RedScoreLabel;
         private System.Windows.Forms.Button YellowHumanButton;
-        private System.Windows.Forms.Label YelloScoreLabel;
+        private System.Windows.Forms.Label YellowScoreLabel;
         private System.Windows.Forms.Label YellowPlayerLabel;
         private System.Windows.Forms.CheckBox YellowConsoleWindowCheckBox;
         private System.Windows.Forms.GroupBox RedGroupBox;

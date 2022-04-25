@@ -50,6 +50,11 @@ namespace Connect4Interface
         const int TWENTY_SECONDS_MILLI = 20000;
         const int ONE_MINUTE_MILLI = 60000;
 
+        //Keeps track of the games won by both colors
+        int redGamesWon = 0;
+        int yellowGamesWon = 0;
+
+
         public Connect4Form()
         {
             InitializeComponent();
@@ -270,8 +275,12 @@ namespace Connect4Interface
                 //Make sure the move is legal
                 if (!isLegal(row, col))
                 {
+                    ++redGamesWon;
+                    updateScoreLabel();
+
                     string message = "Red won because Yellow made an illegal move";
                     MessageBox.Show(message);
+
                     gameStopped();
                     return;
                 }
@@ -329,8 +338,12 @@ namespace Connect4Interface
 
                 //Make sure the move is legal
                 if (!isLegal(row, col)) {
+                    ++yellowGamesWon;
+                    updateScoreLabel();
+
                     string message = "Yellow won because Red made an illegal move";
                     MessageBox.Show(message);
+
                     gameStopped();
                     return;
                 }
@@ -523,6 +536,17 @@ namespace Connect4Interface
         }
 
         public void playerWon(string winnerColor) {
+            if (winnerColor == "Red")
+            {
+                redGamesWon++;
+            }
+            else if (winnerColor == "Yellow")
+            {
+                yellowGamesWon++;
+            }
+
+            updateScoreLabel();
+            
             MessageBox.Show(winnerColor + " player won!!");
             gameStopped();
 
@@ -537,6 +561,11 @@ namespace Connect4Interface
             disableAllTiles();
             BackLogButton.Enabled = true;
             backLogIndex = moveLog.Count;
+        }
+
+        public void updateScoreLabel() {
+            YellowScoreLabel.Text = "Games Won: " + yellowGamesWon.ToString();
+            RedScoreLabel.Text = "Games Won: " + redGamesWon.ToString();
         }
 
         //Flips the array (swaps 1 and -1)
