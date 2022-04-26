@@ -882,5 +882,19 @@ namespace Connect4Interface
             }
             MessageBox.Show(message);
         }
+
+        private void AboutButton_Click(object sender,EventArgs e) {
+            MessageBox.Show(
+                "Connect4 Interface\n" +
+                "Created by: Ethan Boulanger & Nathan Cauley\n" +
+                "For use at Southern Illinois University Edwardsville - Artificial Intelligence Class\n" +
+                "Copyright © 2022 Ethan Boulanger and Nathan Cauley",
+                "About Connect4 Interface"
+                );
+        }
+
+        private void ExitButton_Click(object sender,EventArgs e) {
+            Application.Exit();
+        }
     }
 }
