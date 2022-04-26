@@ -54,6 +54,9 @@ namespace Connect4Interface
         int redGamesWon = 0;
         int yellowGamesWon = 0;
 
+        //State variable
+        int state = 0;
+
 
         public Connect4Form()
         {
@@ -105,7 +108,7 @@ namespace Connect4Interface
                     board[row, col] = 0;
                 }
             }
-
+            state++;
             disableLogButtons();
             moveLog.Clear();
             StartOverButton.Enabled = false;
@@ -132,6 +135,7 @@ namespace Connect4Interface
                     board[row, col] = 0;
                 }
             }
+            state++;
             disableLogButtons();
             moveLog.Clear();
             turnIndicator.BackgroundImage = null;
@@ -242,7 +246,7 @@ namespace Connect4Interface
             }
         }
 
-        private void yellowTurn() 
+        private async void yellowTurn() 
         {
             if (YellowPlayerLabel.Text == "Human")
             {
@@ -255,8 +259,16 @@ namespace Connect4Interface
                 //We need to output the current board state 
                 outputBoard();
 
+                
+                int currState = state;
+
                 //Call the executable
-                bool processExited = runExecutable();
+                bool processExited = await Task.Run(() => runExecutable());
+                if (state != currState) 
+                {
+                    Console.WriteLine("State changed");
+                    return;
+                }
                 if(processExited == false) {
                     quitGameTimeLimit();
                     return;
@@ -304,7 +316,7 @@ namespace Connect4Interface
             }
         }
 
-        private void redTurn() 
+        private async void redTurn() 
         {
             if (RedPlayerLabel.Text == "Human")
             {
@@ -318,9 +330,16 @@ namespace Connect4Interface
                 //We need to output the current board state 
                 outputBoard();
 
+                int currState = state;
+
                 //Call the executable
-                bool processExited = runExecutable();
-                if(processExited == false) {
+                bool processExited = await Task.Run(() => runExecutable());
+                if (state != currState)
+                {
+                    Console.WriteLine("State changed");
+                    return;
+                }
+                if (processExited == false) {
                     quitGameTimeLimit();
                     return;
                 }
@@ -797,7 +816,8 @@ namespace Connect4Interface
                 TenSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-           }
+                NoLimit_LimitMenuItem.Checked = false;
+            }
         }
 
         private void TenSeconds_LimitMenuItem_Click(object sender,EventArgs e) {
@@ -807,7 +827,8 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-           }
+                NoLimit_LimitMenuItem.Checked = false;
+            }
         }
 
         private void TwentySeconds_LimitMenuItem_Click(object sender,EventArgs e) {
@@ -817,7 +838,8 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TenSeconds_LimitMenuItem.Checked = false;
                 OneMinute_LimitMenuItem.Checked = false;
-           }
+                NoLimit_LimitMenuItem.Checked = false;
+            }
         }
 
         private void OneMinut_LimitMenuItem_Click(object sender,EventArgs e) {
@@ -827,10 +849,24 @@ namespace Connect4Interface
                 FiveSeconds_LimitMenuItem.Checked = false;
                 TenSeconds_LimitMenuItem.Checked = false;
                 TwentySeconds_LimitMenuItem.Checked = false;
-           }
+                NoLimit_LimitMenuItem.Checked = false;
+            }
         }
 
-        private void SaveLog_FileMenuItem_Click(object sender,EventArgs e) {
+        private void NoLimit_LimitMenuItem_Click(object sender, EventArgs e)
+        {
+            if (NoLimit_LimitMenuItem.Checked == false)
+            {
+                NoLimit_LimitMenuItem.Checked = true;
+
+                FiveSeconds_LimitMenuItem.Checked = false;
+                TenSeconds_LimitMenuItem.Checked = false;
+                TwentySeconds_LimitMenuItem.Checked = false;
+                OneMinute_LimitMenuItem.Checked = false;
+            }
+        }
+
+            private void SaveLog_FileMenuItem_Click(object sender,EventArgs e) {
             string logString = "";
             for(int i=0; i<moveLog.Count; i++) { 
                 logString += moveLog[i].turn + " " + moveLog[i].row + " " + moveLog[i].col + "\n";              
@@ -905,7 +941,13 @@ namespace Connect4Interface
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
             Application.Exit();
+        }
+
+        private void Connect4Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
     }
 }
