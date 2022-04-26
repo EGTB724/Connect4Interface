@@ -17,7 +17,7 @@ namespace Connect4Interface
         public int row;
         public int col;
         public Move(string turn, int row, int col) {
-            if(turn == "red" || turn == "R") { 
+            if(turn == "R") { 
                 this.turn = "R";
             } else { 
                 this.turn = "Y";
@@ -79,7 +79,7 @@ namespace Connect4Interface
                                             { p50, p51, p52, p53, p54, p55, p56 } };
 
             moveLog.Clear();
-            turn = "red";
+            turn = "R";
                         
             //Start with the game board disabled
             disableAllTiles();
@@ -111,7 +111,7 @@ namespace Connect4Interface
             StartOverButton.Enabled = false;
             startGameToolStripMenuItem.Enabled = false;
             turnIndicator.BackgroundImage = Properties.Resources.redchip;
-            turn = "red";
+            turn = "R";
             redTurn();
         }
 
@@ -187,19 +187,18 @@ namespace Connect4Interface
                 return;
             }
 
-            if (turn == "red")
+            if (turn == "R")
             {
                 if (isValid(tile.Name)) 
                 {
                     //Place the piece on both boards
                     placePiece(tile.Name);
                     tile.BackgroundImage = Properties.Resources.redchip;
-                    tile.Tag = "red";
+                    tile.Tag = "R";
 
                     //Check if the player has won
-                    if (hasWon())
+                    if (gameOver())
                     {
-                        playerWon("Red");
                         return;
                     }
                     else
@@ -207,7 +206,7 @@ namespace Connect4Interface
 
                         //Change the turn
                         turnIndicator.BackgroundImage = Properties.Resources.yellowchip;
-                        turn = "yellow";
+                        turn = "Y";
                         flipBoard();
                         yellowTurn();
                         return;
@@ -215,19 +214,18 @@ namespace Connect4Interface
                 }
                 
             }
-            else if (turn == "yellow")
+            else if (turn == "Y")
             {
                 if (isValid(tile.Name))
                 {
                     //Place the piece on both boards
                     placePiece(tile.Name);
                     tile.BackgroundImage = Properties.Resources.yellowchip;
-                    tile.Tag = "yellow";
+                    tile.Tag = "Y";
 
                     //Check if the player has won
-                    if (hasWon())
+                    if (gameOver())
                     {
-                        playerWon("Yellow");
                         return;
                     }
                     else
@@ -235,7 +233,7 @@ namespace Connect4Interface
 
                         //Change the turn
                         turnIndicator.BackgroundImage = Properties.Resources.redchip;
-                        turn = "red";
+                        turn = "R";
                         flipBoard();
                         redTurn();
                         return;
@@ -287,20 +285,19 @@ namespace Connect4Interface
 
                 board[row, col] = 1;
                 formBoard[row,col].BackgroundImage = Properties.Resources.yellowchip;
-                formBoard[row,col].Tag = "yellow";
+                formBoard[row,col].Tag = "Y";
 
                 Move nextMove = new Move(turn, row, col);
                 moveLog.Add(nextMove);
 
                 //Check if the player has won
-                if (hasWon())
+                if (gameOver())
                 {
-                    playerWon("Yellow");
                     return;
                 }
 
                 //Change the turn
-                turn = "red";
+                turn = "R";
                 flipBoard();
                 redTurn();
                 return;
@@ -350,20 +347,19 @@ namespace Connect4Interface
 
                 board[row, col] = 1;
                 formBoard[row, col].BackgroundImage = Properties.Resources.redchip;
-                formBoard[row, col].Tag = "red";
+                formBoard[row, col].Tag = "R";
                 
                 Move nextMove = new Move(turn, row, col);
                 moveLog.Add(nextMove);
 
                 //Check if the player has won
-                if (hasWon())
+                if (gameOver())
                 {
-                    playerWon("Red");
                     return;
                 }
 
                 //Change the turn
-                turn = "yellow";
+                turn = "Y";
                 flipBoard();
                 yellowTurn();
                 return;
@@ -372,7 +368,7 @@ namespace Connect4Interface
 
         public bool runExecutable() {
             Process process = new System.Diagnostics.Process();
-            if(turn == "red") { 
+            if(turn == "R") { 
                 process.StartInfo.FileName = RedPlayerLabel.Text;
 
                 //You have to manually set the working directory of the called executable or else it will assume its the same as the c# program
@@ -421,7 +417,7 @@ namespace Connect4Interface
 
         public void quitGameTimeLimit() {
             string message = "";
-            if(turn == "red") { 
+            if(turn == "R") { 
                 message += "Game exited because Red took too long to run.";
             } else { 
                 message += "Game exited because Yellow took too long to run.";
@@ -489,6 +485,35 @@ namespace Connect4Interface
             moveLog.Add(nextMove);
         }
 
+        private bool gameOver() {
+            if(boardFull()) {
+                tieGame();
+                gameStopped();
+                return true;
+            } else if(hasWon()){
+                playerWon();
+                gameStopped();
+                return true;
+            }
+            return false;
+        }
+
+        private bool boardFull() {
+            bool boardFull = true;
+            for(int i=0; i<NUM_ROWS; i++) { 
+                for(int j=0; j<NUM_COLS; j++) { 
+                    if(board[i,j] == 0) {
+                        boardFull = false;
+                    }
+                }
+            }
+            return boardFull;
+        }
+
+        private void tieGame() {
+            MessageBox.Show("TIE GAME");
+        }
+
         //Check the board to see if there is any line of 4 1's
         private bool hasWon()
         {
@@ -535,20 +560,20 @@ namespace Connect4Interface
             return false;
         }
 
-        public void playerWon(string winnerColor) {
-            if (winnerColor == "Red")
-            {
+
+        public void playerWon() {
+            string winnerColor;
+            if(turn == "R") {
+                winnerColor = "Red";
                 redGamesWon++;
-            }
-            else if (winnerColor == "Yellow")
-            {
+            } else {
+                winnerColor = "Yellow";
                 yellowGamesWon++;
             }
-
-            updateScoreLabel();
             
+            updateScoreLabel();
+
             MessageBox.Show(winnerColor + " player won!!");
-            gameStopped();
 
             //string message = "";
             //for(int i=0; i<moveLog.Count; i++) { 
@@ -663,7 +688,7 @@ namespace Connect4Interface
 
             //We want to put the board.txt in the location of the computer .exe, NOT in our own directory
             //This is because we should not assume that the computer .exe is in the same directory as us
-            if (turn == "red")
+            if (turn == "R")
             {
                 directory = Path.GetDirectoryName(RedPlayerLabel.Text);
             }
